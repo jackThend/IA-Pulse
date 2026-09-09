@@ -2,9 +2,9 @@ name: Actualizar AI Pulse Dashboard
 
 on:
   schedule:
-    # Se ejecuta todos los días a las 8:15 AM hora de Chile (11:15 UTC)
+    # Todos los días a las 8:15 AM hora de Chile (11:15 UTC)
     - cron: '15 11 * * *'
-  workflow_dispatch: # Permite ejecutar la actualización manualmente con un clic en GitHub
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -24,37 +24,41 @@ jobs:
       - name: Instalar gdown
         run: pip install --upgrade gdown
 
-      - name: Descargar última edición desde Google Drive
+      - name: Descargar y seleccionar la edición más reciente
         run: |
           python3 -c "
-          import gdown, glob, os, shutil
+          import gdown, glob, os, shutil, re
 
           folder_url = 'https://drive.google.com/drive/folders/1hN4qI-EozwZxz0VwB79_YQ-8dTe2KQ_7'
           os.makedirs('drive_downloads', exist_ok=True)
           
-          print('Descargando carpeta desde Google Drive...')
+          print('Conectando a Google Drive...')
           gdown.download_folder(url=folder_url, output='drive_downloads', quiet=False, use_cookies=False)
 
-          html_files = sorted(glob.glob('drive_downloads/**/*.html', recursive=True), key=os.path.getmtime)
-          if html_files:
-              latest = html_files[-1]
-              print(f'Última edición encontrada: {latest}')
+          html_files = glob.glob('drive_downloads/**/*.html', recursive=True)
+          # Ordenar estrictamente por la fecha YYYY-MM-DD en el nombre del archivo
+          dated_files = [f for f in html_files if re.search(r'\d{4}-\d{2}-\d{2}', os.path.basename(f))]
+          
+          if dated_files:
+              dated_files.sort(key=lambda f: re.search(r'\d{4}-\d{2}-\d{2}', os.path.basename(f)).group(0))
+              latest = dated_files[-1]
+              print(f'Edición seleccionada: {os.path.basename(latest)}')
               shutil.copy(latest, 'index.html')
-              print('Copiado exitosamente a index.html')
+              print('Actualizado index.html con éxito.')
           else:
-              print('No se encontraron archivos HTML en la carpeta descargada')
+              print('No se encontraron archivos con formato de fecha en la carpeta.')
               exit(1)
           "
           rm -rf drive_downloads
 
-      - name: Commit y push de la nueva edición
+      - name: Commit y push
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add index.html
           if git diff --staged --quiet; then
-            echo "El dashboard ya está al día. No hay cambios nuevos."
+            echo "El dashboard ya cuenta con la última edición."
           else
-            git commit -m "chore: actualizar dashboard diario de IA [skip ci]"
+            git commit -m "chore: actualizar a la edición más reciente de IA Pulse [skip ci]"
             git push
           fi
