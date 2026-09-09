@@ -22,23 +22,27 @@ jobs:
           python-version: '3.11'
 
       - name: Instalar gdown
-        run: pip install gdown
+        run: pip install --upgrade gdown
 
       - name: Descargar última edición desde Google Drive
         run: |
-          mkdir -p drive_downloads
-          gdown --folder "https://drive.google.com/drive/folders/1hN4qI-EozwZxz0VwB79_YQ-8dTe2KQ_7" -O drive_downloads --remaining-ok
-          
-          # Script en Python para encontrar el archivo HTML más reciente y renombrarlo a index.html
           python3 -c "
-          import glob, os, shutil
+          import gdown, glob, os, shutil
+
+          folder_url = 'https://drive.google.com/drive/folders/1hN4qI-EozwZxz0VwB79_YQ-8dTe2KQ_7'
+          os.makedirs('drive_downloads', exist_ok=True)
+          
+          print('Descargando carpeta desde Google Drive...')
+          gdown.download_folder(url=folder_url, output='drive_downloads', quiet=False, use_cookies=False)
+
           html_files = sorted(glob.glob('drive_downloads/**/*.html', recursive=True), key=os.path.getmtime)
           if html_files:
               latest = html_files[-1]
               print(f'Última edición encontrada: {latest}')
               shutil.copy(latest, 'index.html')
+              print('Copiado exitosamente a index.html')
           else:
-              print('No se encontraron archivos HTML en la carpeta')
+              print('No se encontraron archivos HTML en la carpeta descargada')
               exit(1)
           "
           rm -rf drive_downloads
