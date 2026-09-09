@@ -1,0 +1,56 @@
+name: Actualizar AI Pulse Dashboard
+
+on:
+  schedule:
+    # Se ejecuta todos los días a las 8:15 AM hora de Chile (11:15 UTC)
+    - cron: '15 11 * * *'
+  workflow_dispatch: # Permite ejecutar la actualización manualmente con un clic en GitHub
+
+permissions:
+  contents: write
+
+jobs:
+  update-dashboard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar gdown
+        run: pip install gdown
+
+      - name: Descargar última edición desde Google Drive
+        run: |
+          mkdir -p drive_downloads
+          gdown --folder "https://drive.google.com/drive/folders/1hN4qI-EozwZxz0VwB79_YQ-8dTe2KQ_7" -O drive_downloads --remaining-ok
+          
+          # Script en Python para encontrar el archivo HTML más reciente y renombrarlo a index.html
+          python3 -c "
+          import glob, os, shutil
+          html_files = sorted(glob.glob('drive_downloads/**/*.html', recursive=True), key=os.path.getmtime)
+          if html_files:
+              latest = html_files[-1]
+              print(f'Última edición encontrada: {latest}')
+              shutil.copy(latest, 'index.html')
+          else:
+              print('No se encontraron archivos HTML en la carpeta')
+              exit(1)
+          "
+          rm -rf drive_downloads
+
+      - name: Commit y push de la nueva edición
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if git diff --staged --quiet; then
+            echo "El dashboard ya está al día. No hay cambios nuevos."
+          else
+            git commit -m "chore: actualizar dashboard diario de IA [skip ci]"
+            git push
+          fi
