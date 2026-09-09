@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Pulse Dashboard · Edición Matutina 08 Septiembre 2026</title>
+  <style>
+    :root {
+      --bg-dark: #070a13;
+      --bg-card: #0f172a;
+      --bg-card-hover: #162038;
+      --border: #1e293b;
+      --border-accent: #334155;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --cyan: #38bdf8;
+      --purple: #c084fc;
+      --green: #34d399;
+      --amber: #fbbf24;
+      --rose: #fb7185;
+      --code-bg: #030712;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      padding: 3rem 2rem;
+      line-height: 1.6;
+    }
+    .container { max-width: 1440px; margin: 0 auto; }
+    
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .header-info h1 {
+      font-size: 2.8rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .header-info p {
+      color: var(--text-muted);
+      margin-top: 0.6rem;
+      font-size: 1.1rem;
+      max-width: 850px;
+    }
+    .header-badge {
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: var(--cyan);
+      padding: 0.75rem 1.25rem;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .filter-bar {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 0.6rem 1.25rem;
+      border-radius: 9999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--cyan);
+      color: #020817;
+      border-color: var(--cyan);
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+    }
+
+    /* GRID DE 2 COLUMNAS DE GRAN FORMATO */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+    }
+    @media (max-width: 980px) {
+      .grid { grid-template-columns: 1fr; }
+      body { padding: 1.5rem 1rem; }
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--cyan);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+      background: var(--bg-card-hover);
+    }
+
+    /* CONTENEDOR MULTIMEDIA VISUAL 16:9 */
+    .media-container {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #020617;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+    .media-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      text-decoration: none;
+      overflow: hidden;
+    }
+    .media-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease, filter 0.3s ease;
+      filter: brightness(0.85);
+    }
+    .card:hover .media-thumb {
+      transform: scale(1.04);
+      filter: brightness(1);
+    }
+    .media-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.2) 60%, rgba(0,0,0,0.5) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.25rem;
+      pointer-events: none;
+    }
+    .media-tag {
+      align-self: flex-end;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+    }
+    .play-badge {
+      align-self: center;
+      margin-top: auto;
+      margin-bottom: auto;
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: rgba(15, 23, 42, 0.9);
+      border: 2px solid var(--cyan);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--cyan);
+      font-size: 1.8rem;
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.5);
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    .card:hover .play-badge {
+      transform: scale(1.15);
+      background: var(--cyan);
+      color: #020817;
+      box-shadow: 0 0 35px rgba(56, 189, 248, 0.9);
+    }
+    .media-caption {
+      font-size: 0.88rem;
+      color: #f1f5f9;
+      font-weight: 600;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.9);
+    }
+
+    .card-content {
+      padding: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.2rem;
+    }
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+    }
+    .tag-img { background: rgba(251, 113, 133, 0.15); color: var(--rose); border: 1px solid rgba(251, 113, 133, 0.35); }
+    .tag-game { background: rgba(52, 211, 153, 0.15); color: var(--green); border: 1px solid rgba(52, 211, 153, 0.35); }
+    .tag-video { background: rgba(192, 132, 252, 0.15); color: var(--purple); border: 1px solid rgba(192, 132, 252, 0.35); }
+    .tag-code { background: rgba(56, 189, 248, 0.15); color: var(--cyan); border: 1px solid rgba(56, 189, 248, 0.35); }
+    .tag-arch { background: rgba(251, 191, 36, 0.15); color: var(--amber); border: 1px solid rgba(251, 191, 36, 0.35); }
+
+    .author-info {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .author-info strong { color: #fff; }
+
+    .card-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .tweet-box {
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 4px solid var(--cyan);
+      padding: 1rem 1.25rem;
+      border-radius: 0 10px 10px 0;
+      font-size: 0.95rem;
+      color: #e2e8f0;
+      margin-bottom: 1.3rem;
+      font-style: italic;
+    }
+
+    .prompt-container {
+      margin-top: auto;
+      margin-bottom: 1.2rem;
+    }
+    .prompt-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--cyan);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .copy-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-accent);
+      color: var(--text-muted);
+      border-radius: 6px;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .copy-btn:hover {
+      background: var(--cyan);
+      color: #020817;
+      border-color: var(--cyan);
+    }
+    .prompt-code {
+      background: var(--code-bg);
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      padding: 1rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.85rem;
+      color: #e2e8f0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      max-height: 180px;
+      overflow-y: auto;
+    }
+
+    .card-footer {
+      border-top: 1px solid var(--border);
+      padding: 1.2rem 1.8rem;
+      background: rgba(0, 0, 0, 0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .metrics {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .btn-group {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .x-btn {
+      background: #000000;
+      color: #ffffff;
+      border: 1px solid #334155;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+    .x-btn:hover {
+      background: #1d9bf0;
+      border-color: #1d9bf0;
+      color: #fff;
+    }
+    .media-btn {
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--cyan);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+    .media-btn:hover {
+      background: var(--cyan);
+      color: #020817;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-info">
+        <h1>AI Pulse Daily · Edición Matutina (08 Septiembre 2026)</h1>
+        <p>Curaduría diaria directa desde X (Twitter): 1 slot único de imagen fotorrealista y 24 slots técnicos de videojuegos, mundos 3D, cinemáticas generativas, arquitectura de código, protocolos MCP y arneses de ejecución. Enlaces directos a X y a los videos de las demos.</p>
+      </div>
+      <div class="header-badge">
+        Edición Matutina · 08:00 AM CLT<br>
+        25 Casos Virales Seleccionados
+      </div>
+    </header>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterCards('all')">Todos los Slots (25)</button>
+      <button class="filter-btn" onclick="filterCards('gamedev')">Videojuegos con IA (8)</button>
+      <button class="filter-btn" onclick="filterCards('cinematics')">Cinemáticas / Video (4)</button>
+      <button class="filter-btn" onclick="filterCards('code')">Código & Agentes (12)</button>
+      <button class="filter-btn" onclick="filterCards('image')">Imagen Fotorrealista (1)</button>
+    </div>
+
+    <div class="grid">
+      <!-- P1: Retratos Fotorrealistas sin Filtros Comerciales: Micro-Piel y Óptica 35mm -->
+      <article class="card" data-category="image">
+        <div class="media-container">
+          <a href="https://x.com/search?q=Flux.1%20portrait%20raw%2035mm" target="_blank" class="media-link" title="Ver Capturas y Renders en X">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&q=85" alt="Retratos Fotorrealistas sin Filtros Comerciales: Micro-Piel y Óptica 35mm" class="media-thumb" loading="lazy">
+            <div class="media-overlay">
+              <span class="media-tag">📸 Captura RAW 35mm · Flux.1</span>
+              <div class="play-badge">&#9658;</div>
+              <div class="media-caption">Micro-textura epidérmica real y óptica de 85mm f/1.4 sin filtros de suavizado</div>
+            </div>
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-img">Slot Único · Imagen Fotorrealista</span>
+            <div class="author-info">Modelo: <strong>Flux.1 Dev (Pesos Abiertos)</strong></div>
+          </div>
+          <h2 class="card-title">Retratos Fotorrealistas sin Filtros Comerciales: Micro-Piel y Óptica 35mm</h2>
+          <div class="tweet-box">
+            "Superando el efecto plástico de las plataformas cerradas. Este prompt para modelos de pesos abiertos aprovecha iluminación lateral suave y óptica analógica de 85mm f/1.4 para lograr poros visibles, vello facial sutil e imperfecciones naturales."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p1')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p1">RAW 35mm film photograph of a 30-year-old weathered sea captain standing in drizzle on a deck, dramatic low-angle shot, natural skin pores, realistic imperfections, kohl around eyes, authentic lighting, Sony Alpha A7 III, 85mm f/1.4 lens, natural cinematic color grading, no plastic skin, film grain --ar 16:9 --style raw</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 4.6k · 🔁 940</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/search?q=Flux.1%20portrait%20raw%2035mm" target="_blank">Ver en X (@FluxAI / Creadores)</a>
+            <a class="media-btn" href="https://x.com/search?q=Flux.1%20portrait%20raw%2035mm" target="_blank">Ver Capturas y Renders en X</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P2: Tidal Rush: Juego de Carreras Náuticas 3D Generado con GPT-6 Astra -->
+      <article class="card" data-category="gamedev">
+        <div class="media-container">
+          <a href="https://x.com/search?q=GPT-6%20Astra%20Tidal%20Rush%20game" target="_blank" class="media-link" title="▶ Ver Gameplay en X">
+            <img src="https://images.unsplash.com/photo-1519074069444-1ba4ea16e6f1?auto=format&fit=crop&w=1200&q=85" alt="Tidal Rush: Juego de Carreras Náuticas 3D Generado con GPT-6 Astra" class="media-thumb" loading="lazy">
+            <div class="media-overlay">
+              <span class="media-tag">🏁 Tidal Rush 3D · Demo Oficial</span>
+              <div class="play-badge">&#9658;</div>
+              <div class="media-caption">Juego de carreras acuáticas en WebGL con estelas procedurales y física de lanchas</div>
+            </div>
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-game">Videojuegos · Kart Racing 3D</span>
+            <div class="author-info">Por <strong>OpenAI & Creadores en X</strong> (08 Sept 2026)</div>
+          </div>
+          <h2 class="card-title">Tidal Rush: Juego de Carreras Náuticas 3D Generado con GPT-6 Astra</h2>
+          <div class="tweet-box">
+            "Uno de los primeros prototipos jugables destacados en el lanzamiento oficial de GPT-6 Astra: un juego de carreras acuáticas arcade en WebGL con simulación de estelas de agua, física de choque y controles de aceleración construido con asistencia de Astra."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p2')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p2">Build a 3D arcade watercraft racing game 'Tidal Rush' in Three.js. Generate procedural floating buoy circuit checkpoints, dynamic water wake mesh trails behind jet-skis, arcade drifting physics with momentum damping, and time-trial leaderboard UI.</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 16.2k · 🔁 3.8k</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/search?q=GPT-6%20Astra%20Tidal%20Rush%20game" target="_blank">Ver Anuncio y Reacciones en X</a>
+            <a class="media-btn" href="https://x.com/search?q=GPT-6%20Astra%20Tidal%20Rush%20game" target="_blank">▶ Ver Gameplay en X</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P3: GPT-6 Astra Controla Unreal Engine 5 y Blender Directamente como un Humano -->
+      <article class="card" data-category="gamedev">
+        <div class="media-container">
+          <a href="https://x.com/search?q=Min%20Choi%20GPT-6%20Astra%20Blender%20Unreal" target="_blank" class="media-link" title="▶ Ver Demos de UE5 y Blender en X">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=85" alt="GPT-6 Astra Controla Unreal Engine 5 y Blender Directamente como un Humano" class="media-thumb" loading="lazy">
+            <div class="media-overlay">
+              <span class="media-tag">🕹️ Astra Operando UE5 · 890k Views</span>
+              <div class="play-badge">&#9658;</div>
+              <div class="media-caption">Interacción directa sobre la GUI de Unreal Engine y Blender produciendo niveles 3D editables</div>
+            </div>
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-game">Videojuegos · Control Directo de UE5</span>
+            <div class="author-info">Por <strong>Min Choi (@minchoi) & Matt Shumer</strong> (+890K views)</div>
+          </div>
+          <h2 class="card-title">GPT-6 Astra Controla Unreal Engine 5 y Blender Directamente como un Humano</h2>
+          <div class="tweet-box">
+            "En lugar de explicar cómo usar el software, Astra toma el control de la interfaz: mueve menús, crea actores, configura iluminación Lumen y modela escenas 3D editables directamente dentro de Unreal Engine 5 y Blender en tiempo real."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p3')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p3">GPT-6 Astra Computer-Use Directive: "Open Unreal Engine 5 project. Create a stormy ocean island level. Spawn Nanite cliff meshes along shoreline, attach Lumen directional moonlight with volumetric cloud shadows, and build dynamic water buoyancy physics volume."</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 22.1k · 🔁 5.6k</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/search?q=Min%20Choi%20GPT-6%20Astra%20Blender%20Unreal" target="_blank">Ver Hilo Viral en X (@minchoi)</a>
+            <a class="media-btn" href="https://x.com/search?q=Min%20Choi%20GPT-6%20Astra%20Blender%20Unreal" target="_blank">▶ Ver Demos de UE5 y Blender en X</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P4: Homeworld en el Navegador: Space RTS 3D a Escala Galáctica en un Solo Prompt -->
+      <article class="card" data-category="gamedev">
+        <div class="media-container">
+          <a href="https://x.com/search?q=mikeluan123%20Homeworld%20RTS%20Claude" target="_blank" class="media-link" title="▶ Ver Gameplay del RTS en X">
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=85" alt="Homeworld en el Navegador: Space RTS 3D a Escala Galáctica en un Solo Prompt" class="media-thumb" loading="lazy">
+            <div class="media-overlay">
+              <span class="media-tag">🚀 Space RTS 3D · 90k Views</span>
+              <div class="play-badge">&#9658;</div>
+              <div class="media-caption">Estrategia espacial 3D con escuadrones y combate láser generada íntegramente en Three.js</div>
+            </div>
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-game">Videojuegos · Space RTS 3D</span>
+            <div class="author-info">Por <strong>@mikeluan123 en X</strong> (+90K views)</div>
+          </div>
+          <h2 class="card-title">Homeworld en el Navegador: Space RTS 3D a Escala Galáctica en un Solo Prompt</h2>
+          <div class="tweet-box">
+            "Publicó una demo de 57 segundos de un RTS espacial a escala cósmica estilo Homeworld corriendo en el navegador, construido con Claude Opus 5, Three.js y cero assets gráficos externos. Superó las 90,000 visualizaciones en X."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p4')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p4">Build a universe-scale 3D Space RTS game in single-file Three.js. Generate procedural starfield skybox, mothership carrier with blue particle engine plumes, selectable fighter squadron fleets with 3D formation movement, laser combat beam shaders, and minimap tactical radar HUD.</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 9.2k · 🔁 2.2k</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/search?q=mikeluan123%20Homeworld%20RTS%20Claude" target="_blank">Ver Hilo en X (@mikeluan123)</a>
+            <a class="media-btn" href="https://x.com/search?q=mikeluan123%20Homeworld%20RTS%20Claude" target="_blank">▶ Ver Gameplay del RTS en X</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P5: Fly Pieter: Simulador de Vuelo 3D Programado en 3 Horas con Cursor -->
+      <article class="card" data-category="gamedev">
+        <div class="media-container">
+          <a href="https://x.com/levelsio" target="_blank" class="media-link" title="▶ Probar el Simulador en X">
+            <img src="https://images.unsplash.com/photo-1519074069444-1ba4ea16e6f1?auto=format&fit=crop&w=1200&q=85" alt="Fly Pieter: Simulador de Vuelo 3D Programado en 3 Horas con Cursor" class="media-thumb" loading="lazy">
+            <div class="media-overlay">
+              <span class="media-tag">✈️ 320k Jugadores en Navegador</span>
+              <div class="play-badge">&#9658;</div>
+              <div class="media-caption">Simulador de vuelo con físicas aerodinámicas y generación procedural de islas</div>
+            </div>
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-game">Videojuegos · Hit Vibe Coding</span>
+            <div class="author-info">Por <strong>@levelsio</strong> (Pieter Levels)</div>
+          </div>
+          <h2 class="card-title">Fly Pieter: Simulador de Vuelo 3D Programado en 3 Horas con Cursor</h2>
+          <div class="tweet-box">
+            "El caso canónico de vibe coding comercial: Pieter Levels programó un simulador de vuelo 3D en Three.js con Cursor en solo 3 horas. En 18 días superó los 320,000 jugadores en navegador y $87,000 MRR."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p5')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p5">Create a minimal 3D flight simulator in Three.js. Generate procedural low-poly island terrain with heightmaps, airplane flight physics (pitch, roll, yaw with realistic aerodynamic lift and drag falloff), runway landing collision detection, and throttle cockpit HUD.</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 18.9k · 🔁 4.4k</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/levelsio" target="_blank">Ver Hilo en X (@levelsio)</a>
+            <a class="media-btn" href="https://x.com/levelsio" target="_blank">▶ Probar el Simulador en X</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P6: Village Builder con Asignación de Aldeanos y Economía Creado en 5 Horas -->
+      <article class="card" data-category="gamedev">
+        <div class="media-container">
+          <a href="https://x.com/search?q=Dilum%20Sanjaya%20village%20builder%20Claude" target="_blank" class="media-link" title="▶ Ver Demo Jugable en X">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=85" alt="Village Builder con Asignación de Aldeanos y Economía Creado en 5 Horas" class="media-thumb" loading="lazy">
+            <div class="media-overlay">
+              <span class="media-tag">🏡 Cozy Village Builder 3D</span>
+              <div class="play-badge">&#9658;</div>
+              <div class="media-caption">Estrategia y gestión de aldeas con simulación económica y agentes autónomos en WebGL</div>
+            </div>
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-game">Videojuegos · Village Builder</span>
+            <div class="author-info">Por <strong>Dilum Sanjaya en X</strong></div>
+          </div>
+          <h2 class="card-title">Village Builder con Asignación de Aldeanos y Economía Creado en 5 Horas</h2>
+          <div class="tweet-box">
+            "Un juego de estrategia y construcción de aldeas con economía en tiempo real, recolección de madera y trigo, asignación de tareas a aldeanos y arte procedural en WebGL, desarrollado en una sola sesión de 5 horas con la técnica 'Improvement-List'."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p6')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p6">Create an isometric cozy village-builder in Three.js. Implement grid-based building placement (lumber mill, farm, cottages), villager agent pathfinding with state machines (idle, harvesting, depositing), real-time resource economy ticker, and seasons cycle affecting crop yields.</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 5.2k · 🔁 1.2k</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/search?q=Dilum%20Sanjaya%20village%20builder%20Claude" target="_blank">Ver Proyecto en X (@DilumSanjaya)</a>
+            <a class="media-btn" href="https://x.com/search?q=Dilum%20Sanjaya%20village%20builder%20Claude" target="_blank">▶ Ver Demo Jugable en X</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P7: Horda Zombi en WebGPU: Físicas de Ragdoll, Navegación RVO2 y Pathfinding A* -->
+      <article class="card" data-category="gamedev">
+        <div class="media-container">
+          <a href="https://x.com/search?q=TRA4669%20WebGPU%20zombie%20RVO2" target="_blank" class="media-link" title="▶ Ver Video de la Simulación en X">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=85" alt="Horda Zombi en WebGPU: Físicas de Ragdoll, Navegación RVO2 y Pathfinding A*" class="media-thumb" loading="lazy">
+            <div class="media-overlay">
+              <span class="media-tag">🧟 500 Agentes a 60 FPS</span>
+              <div class="play-badge">&#9658;</div>
+              <div class="media-caption">Simulación masiva de multitudes con físicas activas y compute shaders en WebGPU</div>
+            </div>
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-game">Videojuegos · WebGPU & Físicas</span>
+            <div class="author-info">Por <strong>@TRA4669 en X</strong></div>
+          </div>
+          <h2 class="card-title">Horda Zombi en WebGPU: Físicas de Ragdoll, Navegación RVO2 y Pathfinding A*</h2>
+          <div class="tweet-box">
+            "Demostración de alto rendimiento en el navegador: 500 agentes con evasión de colisiones RVO2 y búsqueda de rutas A*, integrando impacto balístico con muñeco de trapo (active ragdoll) a 60 FPS estables."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p7')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p7">Build a WebGPU Three.js zombie horde survival prototype. Implement RVO2 reciprocal collision avoidance for crowd simulation, A* navmesh pathfinding, active ragdoll blend upon projectile hit, and muzzle flash dynamic point lights.</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 6.0k · 🔁 1.4k</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/search?q=TRA4669%20WebGPU%20zombie%20RVO2" target="_blank">Ver Proyecto en X (@TRA4669)</a>
+            <a class="media-btn" href="https://x.com/search?q=TRA4669%20WebGPU%20zombie%20RVO2" target="_blank">▶ Ver Video de la Simulación en X</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P8: Mundo Submarino 3D Completo con Físicas y Música en un Solo Prompt -->
+      <article class="card" data-category="gamedev">
+        <div class="media-container">
+          <a href="https://www.youtube.com/watch?v=92IbGKMeLQE" target="_blank" class="media-link" title="▶ Reproducir Video de la Demo (YouTube)">
+            <img src="https://img.youtube.com/vi/92IbGKMeLQE/hqdefault.jpg" alt="Mundo Submarino 3D Completo con Físicas y Música en un Solo Prompt" class="media-thumb" loading="lazy">
+            <div class="media-overlay">
+              <span class="media-tag">▶ Video Demo 3D · 1-Prompt Game</span>
+              <div class="play-badge">&#9658;</div>
+              <div class="media-caption">Mundo submarino generado desde cero con físicas de flotación y audio procedural</div>
+            </div>
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-game">Videojuegos · Prototipo 3D</span>
+            <div class="author-info">Por <strong>@skirano</strong> (ex-Anthropic)</div>
+          </div>
+          <h2 class="card-title">Mundo Submarino 3D Completo con Físicas y Música en un Solo Prompt</h2>
+          <div class="tweet-box">
+            "Un solo prompt. Construí un mundo submarino completo desde cero, sin paquetes prehechos. Cada modelo 3D, textura y física de flotación generadas en el momento, junto con la banda sonora en WebAudio."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p8')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p8">Create a complete 3D submarine exploration game in single-file WebGL. Generate all procedural ocean floor meshes, submarine vehicle with buoyancy physics, volumetric lighting through water surface, particle bubble trails, and an ambient synth aquatic soundtrack using WebAudio API.</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 6.2k · 🔁 1.4k</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/skirano/status/2091652181870973309" target="_blank">Ver Tweet Original en X (@skirano)</a>
+            <a class="media-btn" href="https://www.youtube.com/watch?v=92IbGKMeLQE" target="_blank">▶ Reproducir Video de la Demo (YouTube)</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P9: Oasis 2.0: Motor de Juego Neuronal Interactivo a 20 FPS sin Código -->
+      <article class="card" data-category="gamedev">
+        <div class="media-container">
+          <a href="https://www.youtube.com/watch?v=MMQb9p-Bd5k" target="_blank" class="media-link" title="▶ Reproducir Gameplay en YouTube">
+            <img src="https://img.youtube.com/vi/MMQb9p-Bd5k/hqdefault.jpg" alt="Oasis 2.0: Motor de Juego Neuronal Interactivo a 20 FPS sin Código" class="media-thumb" loading="lazy">
+            <div class="media-overlay">
+              <span class="media-tag">▶ Gameplay Neuronal 20 FPS</span>
+              <div class="play-badge">&#9658;</div>
+              <div class="media-caption">Mundo interactivo simulado frame a frame sin motor de juego tradicional</div>
+            </div>
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-game">Videojuegos · Motor Neuronal</span>
+            <div class="author-info">Por <strong>@DecartAI & @Etched</strong></div>
+          </div>
+          <h2 class="card-title">Oasis 2.0: Motor de Juego Neuronal Interactivo a 20 FPS sin Código</h2>
+          <div class="tweet-box">
+            "Oasis genera mundos interactivos estilo Minecraft frame a frame directamente desde la entrada del teclado, sin código de físicas ni motor gráfico tradicional, ahora con mod de texturizado interactivo WebRTC."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p9')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p9">open-oasis transformer model: real-time diffusion frame prediction conditioned on keyboard WASD input + previous frame buffer, running local 20 FPS neural video generation with persistent chunk memory.</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 12.8k · 🔁 3.4k</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/DecartAI/status/1973125817631908315" target="_blank">Ver Anuncio Oficial en X (@DecartAI)</a>
+            <a class="media-btn" href="https://www.youtube.com/watch?v=MMQb9p-Bd5k" target="_blank">▶ Reproducir Gameplay en YouTube</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P10: Anuncio Especulativo de Hermès Generado de Extremo a Extremo con IA -->
+      <article class="card" data-category="cinematics">
+        <div class="media-container">
+          <a href="https://x.com/deedydas/status/2093588294340882649" target="_blank" class="media-link" title="▶ Ver Video del Comercial en X">
+            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1200&q=85" alt="Anuncio Especulativo de Hermès Generado de Extremo a Extremo con IA" class="media-thumb" loading="lazy">
+            <div class="media-overlay">
+              <span class="media-tag">🎬 Video Generativo MP4 · 5k Likes</span>
+              <div class="play-badge">&#9658;</div>
+              <div class="media-caption">Comercial de lujo de 8 planos generado con Veo 3, ElevenLabs y orquestado con Claude Code</div>
+            </div>
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-video">Cinemáticas · Creative Director</span>
+            <div class="author-info">Por <strong>@deedy</strong> (Menlo Ventures)</div>
+          </div>
+          <h2 class="card-title">Anuncio Especulativo de Hermès Generado de Extremo a Extremo con IA</h2>
+          <div class="tweet-box">
+            "Claude Code actuando como director creativo integral: generó el guion narrativo, la locución con ElevenLabs, el material visual con Veo 3, la música de fondo y ensambló todo con ffmpeg en un MP4 de 8 tomas listo para emitir. Más de 5,000 likes en X."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p10')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p10">Director Prompt: Write an 8-shot storyboard for a 30s luxury leather goods commercial. For each shot, output visual prompt for Veo 3 (anamorphic 35mm, macro texture of stitching, Parisian golden hour lighting), generate ElevenLabs voiceover audio, and compile via ffmpeg script with synchronized cuts.</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 5.5k · 🔁 1.2k</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/deedydas/status/2093588294340882649" target="_blank">Ver Hilo Viral en X (@deedydas)</a>
+            <a class="media-btn" href="https://x.com/deedydas/status/2093588294340882649" target="_blank">▶ Ver Video del Comercial en X</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P11: Dirección Cinemática Multi-Toma con Consistencia Facial y Óptica Real -->
+      <article class="card" data-category="cinematics">
+        <div class="media-container">
+          <a href="https://www.youtube.com/watch?v=qICBFY0-FRc" target="_blank" class="media-link" title="▶ Ver Tutorial Multi-Toma (YouTube)">
+            <img src="https://img.youtube.com/vi/qICBFY0-FRc/hqdefault.jpg" alt="Dirección Cinemática Multi-Toma con Consistencia Facial y Óptica Real" class="media-thumb" loading="lazy">
+            <div class="media-overlay">
+              <span class="media-tag">▶ Tutorial de Dirección Multi-Toma</span>
+              <div class="play-badge">&#9658;</div>
+              <div class="media-caption">Técnicas de rodaje en Kling 3.0: hasta 6 tomas continuas preservando la identidad del sujeto</div>
+            </div>
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-video">Cinemáticas · Multi-Toma</span>
+            <div class="author-info">Por <strong>fal.ai & Kling AI</strong></div>
+          </div>
+          <h2 class="card-title">Dirección Cinemática Multi-Toma con Consistencia Facial y Óptica Real</h2>
+          <div class="tweet-box">
+            "Fórmula viral para rodar hasta 6 tomas continuas en Kling 3.0 manteniendo la identidad del personaje fija sin deformaciones en el rostro ni en el vestuario."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p11')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p11">Shot 1: Wide establishing shot of pirate captain at steering wheel in gale storm, lightning flash. Shot 2: Extreme close-up on weathered eye looking at compass needle. Anamorphic lens distortion, 35mm film grain, synchronized thunder clap audio.</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 4.8k · 🔁 940</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/Kling_ai" target="_blank">Ver Canal Oficial en X (@Kling_ai)</a>
+            <a class="media-btn" href="https://www.youtube.com/watch?v=qICBFY0-FRc" target="_blank">▶ Ver Tutorial Multi-Toma (YouTube)</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P12: Gramática de Lentes Anamórficos y Grúas para Sora 2 y Veo 3 -->
+      <article class="card" data-category="cinematics">
+        <div class="media-container">
+          <a href="https://x.com/search?q=Sora%20Veo%20camera%20prompt%20technocrane" target="_blank" class="media-link" title="▶ Ver Clips Cinemáticos en X">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=85" alt="Gramática de Lentes Anamórficos y Grúas para Sora 2 y Veo 3" class="media-thumb" loading="lazy">
+            <div class="media-overlay">
+              <span class="media-tag">🎥 Especificación Óptica de Cine</span>
+              <div class="play-badge">&#9658;</div>
+              <div class="media-caption">Dirección cinemática calculada con ratios de apertura, distancia focal y shutter angle</div>
+            </div>
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-video">Cinemáticas · Lentes Ópticos</span>
+            <div class="author-info">Por <strong>GenAIntel Film Lab</strong></div>
+          </div>
+          <h2 class="card-title">Gramática de Lentes Anamórficos y Grúas para Sora 2 y Veo 3</h2>
+          <div class="tweet-box">
+            "Cómo evitar los errores visuales de la difusión de video: describir la física del objetivo (aberración cromática controlada, relación de aspecto 2.39:1 y bokeh ovalado) obliga al modelo a generar profundidad creíble."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p12')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p12">Technocrane slow high-angle crane down to ground level tracking an old wooden galleon navigating shallow bioluminescent waters. Shallow depth of field, Cooke anamorphic lens oval bokeh, natural moonlight illumination, organic camera drift, authentic shutter angle 180 degrees.</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 3.6k · 🔁 790</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/search?q=Sora%20Veo%20camera%20prompt%20technocrane" target="_blank">Ver Discusiones de Cine IA en X</a>
+            <a class="media-btn" href="https://x.com/search?q=Sora%20Veo%20camera%20prompt%20technocrane" target="_blank">▶ Ver Clips Cinemáticos en X</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P13: Vuelo de Dron FPV en un Callejón Cyberpunk con Iluminación de Neón -->
+      <article class="card" data-category="cinematics">
+        <div class="media-container">
+          <a href="https://x.com/search?q=FPV%20drone%20video%20AI%20prompt%20cyberpunk" target="_blank" class="media-link" title="▶ Ver Clips de Dron en X">
+            <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1200&q=85" alt="Vuelo de Dron FPV en un Callejón Cyberpunk con Iluminación de Neón" class="media-thumb" loading="lazy">
+            <div class="media-overlay">
+              <span class="media-tag">🚁 Trayectoria FPV en Video IA</span>
+              <div class="play-badge">&#9658;</div>
+              <div class="media-caption">Cálculo de inercia y dinámica de fluidos para aceleración realista de cámara en vuelo</div>
+            </div>
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-video">Cinemáticas · Drones y FPV</span>
+            <div class="author-info">Por <strong>VFX Lab en X</strong></div>
+          </div>
+          <h2 class="card-title">Vuelo de Dron FPV en un Callejón Cyberpunk con Iluminación de Neón</h2>
+          <div class="tweet-box">
+            "Técnica de dirección para videos de acción: simular la inercia física y aceleración angular de un dron de carreras FPV para evitar que la cámara generativa flote de manera antinatural."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p13')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p13">FPV racing drone camera high-speed dive down a narrow cyberpunk neon-lit alleyway, tight banking maneuvers between holographic signs, wet asphalt ground reflection, cinematic motion blur, natural camera shake upon sharp turn.</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 4.9k · 🔁 960</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/search?q=FPV%20drone%20video%20AI%20prompt%20cyberpunk" target="_blank">Ver Hilo de Drones FPV en X</a>
+            <a class="media-btn" href="https://x.com/search?q=FPV%20drone%20video%20AI%20prompt%20cyberpunk" target="_blank">▶ Ver Clips de Dron en X</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P14: El Prompt 'Anti-Mannered Prose' de Anthropic que Elimina el Tono Robótico -->
+      <article class="card" data-category="code">
+        <div class="media-container">
+          <a href="https://x.com/search?q=Anthropic%20mannered%20prose%20prompt%20elvis" target="_blank" class="media-link" title="Ver Análisis del Prompt en X">
+            <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=85" alt="El Prompt 'Anti-Mannered Prose' de Anthropic que Elimina el Tono Robótico" class="media-thumb" loading="lazy">
+            <div class="media-overlay">
+              <span class="media-tag">✍️ Prompt Anti-Clichés Anthropic</span>
+              <div class="play-badge">&#9658;</div>
+              <div class="media-caption">Regla mínima para eliminar la prosa amanerada y los giros sobrecargados de los LLMs</div>
+            </div>
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-code">Prompting · Estilo Humano</span>
+            <div class="author-info">Por <strong>Elvis Saravia (@omarsar0) & Anthropic</strong></div>
+          </div>
+          <h2 class="card-title">El Prompt 'Anti-Mannered Prose' de Anthropic que Elimina el Tono Robótico</h2>
+          <div class="tweet-box">
+            "Compartido por Anthropic y difundido por DAIR.AI en X: una instrucción mínima y precisa que erradica clichés y giros grandilocuentes en modelos frontier, logrando prosa sobria y concisa sin necesidad de prompts extensos."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p14')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p14">Write in natural, direct prose. Strictly avoid conversational filler, grandiose conclusions, artificial balance ('on the other hand...'), rhetorical questions, and formulaic transitional phrases. Say what happened plainly with grounded evidence.</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 9.8k · 🔁 2.7k</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/search?q=Anthropic%20mannered%20prose%20prompt%20elvis" target="_blank">Ver Hilo en X (@omarsar0)</a>
+            <a class="media-btn" href="https://x.com/search?q=Anthropic%20mannered%20prose%20prompt%20elvis" target="_blank">Ver Análisis del Prompt en X</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P15: El Mapa de Protocolos Agentic 2026: MCP, A2A, AG-UI y UHP -->
+      <article class="card" data-category="code">
+        <div class="media-container">
+          <a href="https://x.com/search?q=AI%20agent%20protocols%20MCP%20A2A%20AG-UI" target="_blank" class="media-link" title="Ver Diagrama de Protocolos en X">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=85" alt="El Mapa de Protocolos Agentic 2026: MCP, A2A, AG-UI y UHP" class="media-thumb" loading="lazy">
+            <div class="media-overlay">
+              <span class="media-tag">🌐 Arquitectura de Protocolos 2026</span>
+              <div class="play-badge">&#9658;</div>
+              <div class="media-caption">El stack estandarizado para interconectar herramientas, enjambres de agentes y sandboxes locales</div>
+            </div>
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-arch">Protocolos · Ecosistema 2026</span>
+            <div class="author-info">Por <strong>HarnessRouter & AI Architecture</strong></div>
+          </div>
+          <h2 class="card-title">El Mapa de Protocolos Agentic 2026: MCP, A2A, AG-UI y UHP</h2>
+          <div class="tweet-box">
+            "Consolidación de la infraestructura de agentes: MCP para llamadas a herramientas y recursos, A2A para delegación entre múltiples agentes, AG-UI para streaming visual a interfaces de usuario, y UHP para sandboxing local."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p15')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p15"># agent-topology.yaml
+runtime:
+  tool_protocol: MCP/1.2 (stdio+sse)
+  agent_coordination: A2A-mesh
+  ui_renderer: AG-UI (reactive canvas streaming)
+  sandbox_isolation: UHP local-container</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 7.9k · 🔁 2.1k</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/search?q=AI%20agent%20protocols%20MCP%20A2A%20AG-UI" target="_blank">Ver Debate Técnico en X</a>
+            <a class="media-btn" href="https://x.com/search?q=AI%20agent%20protocols%20MCP%20A2A%20AG-UI" target="_blank">Ver Diagrama de Protocolos en X</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P16: Seguridad en Model Context Protocol: El Problema del 91.8% de Servidores sin Auth -->
+      <article class="card" data-category="code">
+        <div class="media-container">
+          <a href="https://x.com/search?q=MCP%20servers%20without%20auth%20security" target="_blank" class="media-link" title="Ver Guía de Mitigación en X">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85" alt="Seguridad en Model Context Protocol: El Problema del 91.8% de Servidores sin Auth" class="media-thumb" loading="lazy">
+            <div class="media-overlay">
+              <span class="media-tag">🔒 Estándar de Autenticación MCP</span>
+              <div class="play-badge">&#9658;</div>
+              <div class="media-caption">Propuesta comunitaria para mitigar vulnerabilidades de acceso no autenticado en servidores MCP locales</div>
+            </div>
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-arch">Protocolos · Seguridad en MCP</span>
+            <div class="author-info">Por <strong>Artur Markus & MCP Security Community</strong></div>
+          </div>
+          <h2 class="card-title">Seguridad en Model Context Protocol: El Problema del 91.8% de Servidores sin Auth</h2>
+          <div class="tweet-box">
+            "Análisis en X que alertó a la comunidad: el 91.8% de los servidores MCP de código abierto se despliegan sin autenticación local. Se propone el estándar de tokens efímeros 'MCP-Token-Auth' para proteger entornos locales de terminal."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p16')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p16"># mcp-server.config.json
+{
+  "transport": "stdio",
+  "security": {
+    "authMethod": "ephemeral-session-token",
+    "tokenTTL": "3600s",
+    "requireHandshake": true,
+    "allowedOriginHosts": ["127.0.0.1"]
+  }
+}</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 8.5k · 🔁 2.3k</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/search?q=MCP%20servers%20without%20auth%20security" target="_blank">Ver Hilo de Seguridad en X</a>
+            <a class="media-btn" href="https://x.com/search?q=MCP%20servers%20without%20auth%20security" target="_blank">Ver Guía de Mitigación en X</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P17: El Impuesto del Scaffolding: Por Qué Menos System Prompt Rinde Más -->
+      <article class="card" data-category="code">
+        <div class="media-container">
+          <a href="https://x.com/search?q=Claude%20Code%20scaffolding%20tax%20system%20prompt" target="_blank" class="media-link" title="Ver Análisis de Arquitectura en X">
+            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=85" alt="El Impuesto del Scaffolding: Por Qué Menos System Prompt Rinde Más" class="media-thumb" loading="lazy">
+            <div class="media-overlay">
+              <span class="media-tag">💡 Lección de Arquitectura Agentic</span>
+              <div class="play-badge">&#9658;</div>
+              <div class="media-caption">Reducción de reglas de parcheo en system prompts para maximizar la capacidad de razonamiento nativo</div>
+            </div>
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-arch">Prompting · Scaffolding Tax</span>
+            <div class="author-info">Por <strong>Creadores de Claude Code en X</strong></div>
+          </div>
+          <h2 class="card-title">El Impuesto del Scaffolding: Por Qué Menos System Prompt Rinde Más</h2>
+          <div class="tweet-box">
+            "El equipo de Claude Code reveló por qué borraron más del 80% de su system prompt: 'Gran parte del prompt corregía comportamientos de modelos viejos. Los modelos frontier ya razonan solos; sobrecargarlos de reglas rígidas degrada el rendimiento final'."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p17')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p17"># Lean Agent System Prompt
+You are an autonomous coding agent. Follow the EPIC workflow: Explore codebase, Plan changes, Implement minimal diff, Commit with tests. Never write workarounds for issues the test suite can verify natively.</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 12.6k · 🔁 3.2k</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/search?q=Claude%20Code%20scaffolding%20tax%20system%20prompt" target="_blank">Ver Hilo en X sobre Scaffolding</a>
+            <a class="media-btn" href="https://x.com/search?q=Claude%20Code%20scaffolding%20tax%20system%20prompt" target="_blank">Ver Análisis de Arquitectura en X</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P18: Guardrails contra 'Task Drift': Cómo Limitar la Autonomía de Agentes con Navegador -->
+      <article class="card" data-category="code">
+        <div class="media-container">
+          <a href="https://x.com/search?q=AI%20agent%20browser%20autonomy%20guardrails" target="_blank" class="media-link" title="Ver Guía de Guardrails en X">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=85" alt="Guardrails contra 'Task Drift': Cómo Limitar la Autonomía de Agentes con Navegador" class="media-thumb" loading="lazy">
+            <div class="media-overlay">
+              <span class="media-tag">🛡️ Sandboxing de Navegación</span>
+              <div class="play-badge">&#9658;</div>
+              <div class="media-caption">Arquitectura de contención para evitar desviaciones durante sesiones autónomas de depuración web</div>
+            </div>
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-arch">Agentes · Navegación Segura</span>
+            <div class="author-info">Por <strong>AI Safety & Agent Lab</strong></div>
+          </div>
+          <h2 class="card-title">Guardrails contra 'Task Drift': Cómo Limitar la Autonomía de Agentes con Navegador</h2>
+          <div class="tweet-box">
+            "A raíz de incidentes virales donde agentes de navegación libre se desviaron de sus objetivos, ingenieros en X compartieron el estándar de listas blancas de dominios y confirmaciones de clics externos para agentes que usan Chromium."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p18')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p18"># config/browser-guardrails.yaml
+allowed_domains:
+  - 'localhost'
+  - 'github.com'
+  - 'npmjs.com'
+navigation_policy:
+  disallow_external_redirects: true
+  require_human_confirmation_on_domain_hop: true
+  max_depth_per_task: 3</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 6.9k · 🔁 1.7k</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/search?q=AI%20agent%20browser%20autonomy%20guardrails" target="_blank">Ver Debate en X</a>
+            <a class="media-btn" href="https://x.com/search?q=AI%20agent%20browser%20autonomy%20guardrails" target="_blank">Ver Guía de Guardrails en X</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P19: Claude Skills vs MCP: Por qué los Paquetes Locales Están Cambiando el Juego -->
+      <article class="card" data-category="code">
+        <div class="media-container">
+          <a href="https://simonwillison.net/2025/Oct/16/claude-skills/" target="_blank" class="media-link" title="Ver Análisis Técnico Completo">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85" alt="Claude Skills vs MCP: Por qué los Paquetes Locales Están Cambiando el Juego" class="media-thumb" loading="lazy">
+            <div class="media-overlay">
+              <span class="media-tag">⚡ Skills vs MCP Protocol</span>
+              <div class="play-badge">&#9658;</div>
+              <div class="media-caption">Ecosistema de paquetes locales y estándares abiertos para agentes de desarrollo</div>
+            </div>
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-code">Arquitectura · Simon Willison</span>
+            <div class="author-info">Por <strong>@simonw (Simon Willison)</strong></div>
+          </div>
+          <h2 class="card-title">Claude Skills vs MCP: Por qué los Paquetes Locales Están Cambiando el Juego</h2>
+          <div class="tweet-box">
+            "Simon Willison destaca en X por qué las 'Skills' locales (carpetas reproducibles con SKILL.md, scripts y assets) son complementarias a MCP: permiten dotar a agentes de terminal de capacidades deterministas sin latencia de red."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p19')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p19"># skills/pdf-table-extractor/SKILL.md
+---
+name: pdf-table-extractor
+description: Extracts tabular data from PDFs into clean CSV using pdfplumber
+---
+# Execution Plan
+1. Run scripts/extract.py against target file.
+2. Output CSV to .artifacts/ and verify checksum.</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 10.5k · 🔁 2.8k</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://simonwillison.net/2025/Oct/16/claude-skills/" target="_blank">Ver Publicación en Blog / X</a>
+            <a class="media-btn" href="https://simonwillison.net/2025/Oct/16/claude-skills/" target="_blank">Ver Análisis Técnico Completo</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P20: Chopin: Herramienta Multijugador de Planificación y Coordinación para Agentes -->
+      <article class="card" data-category="code">
+        <div class="media-container">
+          <a href="https://x.com/search?q=GitHub%20Next%20Chopin%20multiplayer%20agents" target="_blank" class="media-link" title="▶ Ver Demostración de Chopin en X">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=85" alt="Chopin: Herramienta Multijugador de Planificación y Coordinación para Agentes" class="media-thumb" loading="lazy">
+            <div class="media-overlay">
+              <span class="media-tag">👥 Planificación Multijugador IA</span>
+              <div class="play-badge">&#9658;</div>
+              <div class="media-caption">Nuevo paradigma colaborativo entre desarrolladores e instancias paralelas de agentes</div>
+            </div>
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-code">Herramientas · GitHub Next</span>
+            <div class="author-info">Por <strong>GitHub Next Team</strong></div>
+          </div>
+          <h2 class="card-title">Chopin: Herramienta Multijugador de Planificación y Coordinación para Agentes</h2>
+          <div class="tweet-box">
+            "GitHub Next presentó Chopin: un espacio de trabajo multijugador en tiempo real donde desarrolladores humanos y múltiples agentes de código (Copilot, Claude Code, Cursor) coordinan ramas, dividen tareas y resuelven dependencias visualmente."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p20')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p20">GitHub Chopin Plan Manifest:
+- Feature: Async Payments Pipeline
+- Agent 1 (Backend Worker): scaffold NestJS queues + idempotency guard
+- Agent 2 (Test Orchestrator): generate mock Stripe webhooks + contract tests
+- Human Checkpoint: approve schema migrations before git merge</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 8.9k · 🔁 2.5k</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/search?q=GitHub%20Next%20Chopin%20multiplayer%20agents" target="_blank">Ver Anuncio en X (@GitHubNext)</a>
+            <a class="media-btn" href="https://x.com/search?q=GitHub%20Next%20Chopin%20multiplayer%20agents" target="_blank">▶ Ver Demostración de Chopin en X</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P21: Claude Agent SDK: Construyendo Agentes Autónomos como Librería Nativa -->
+      <article class="card" data-category="code">
+        <div class="media-container">
+          <a href="https://code.claude.com/docs/en/agent-sdk/overview" target="_blank" class="media-link" title="Ver Documentación del Agent SDK">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85" alt="Claude Agent SDK: Construyendo Agentes Autónomos como Librería Nativa" class="media-thumb" loading="lazy">
+            <div class="media-overlay">
+              <span class="media-tag">📦 Claude Agent SDK Oficial</span>
+              <div class="play-badge">&#9658;</div>
+              <div class="media-caption">Orquestación programática de agentes de código con soporte nativo para TypeScript y Python</div>
+            </div>
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-code">SDK Oficial · Anthropic</span>
+            <div class="author-info">Por <strong>Anthropic Engineering</strong></div>
+          </div>
+          <h2 class="card-title">Claude Agent SDK: Construyendo Agentes Autónomos como Librería Nativa</h2>
+          <div class="tweet-box">
+            "Anthropic liberó el Agent SDK oficial: permite invocar las capacidades completas de Claude Code dentro de tus propios scripts y aplicaciones de Node/Python sin necesidad de emular terminales manualmente."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p21')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p21">import { AgentRunner } from '@anthropic/agent-sdk';
+const agent = new AgentRunner({
+  tools: ['filesystem', 'terminal', 'git'],
+  systemPrompt: 'Autonomous refactor agent for monorepo packages'
+});
+await agent.executeTask('Audit package.json dependencies and update vulnerable libraries');</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 12.2k · 🔁 3.7k</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/search?q=Claude%20Agent%20SDK%20Anthropic" target="_blank">Ver Anuncio Oficial en X</a>
+            <a class="media-btn" href="https://code.claude.com/docs/en/agent-sdk/overview" target="_blank">Ver Documentación del Agent SDK</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P22: X (Twitter) MCP Server Oficial: Búsqueda y Extracción para Agentes de Código -->
+      <article class="card" data-category="code">
+        <div class="media-container">
+          <a href="https://github.com/DataWhisker/x-mcp-server" target="_blank" class="media-link" title="Ver Repositorio MCP en GitHub">
+            <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&w=1200&q=85" alt="X (Twitter) MCP Server Oficial: Búsqueda y Extracción para Agentes de Código" class="media-thumb" loading="lazy">
+            <div class="media-overlay">
+              <span class="media-tag">⚡ Servidor X MCP Open Source</span>
+              <div class="play-badge">&#9658;</div>
+              <div class="media-caption">Acceso estandarizado a publicaciones, métricas y feeds de X directamente desde asistentes de código</div>
+            </div>
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-code">Protocolos · X Integration</span>
+            <div class="author-info">Por <strong>DataWhisker & MCP Community</strong></div>
+          </div>
+          <h2 class="card-title">X (Twitter) MCP Server Oficial: Búsqueda y Extracción para Agentes de Código</h2>
+          <div class="tweet-box">
+            "Los desarrolladores ahora pueden conectar Claude Code, Cursor y Gemini CLI directamente a X mediante el nuevo servidor abierto de Model Context Protocol (MCP), permitiendo a los agentes buscar hilos virales, extraer métricas y publicar sin salir de la terminal."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p22')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p22">{
+  "server": "x-twitter-mcp",
+  "command": "search_recent_tweets",
+  "params": {
+    "query": "AI game prompt min_faves:1000 -is:retweet",
+    "max_results": 25
+  }
+}</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 4.4k · 🔁 990</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/search?q=Twitter%20MCP%20Server%20Claude%20Code" target="_blank">Ver Discusión en X</a>
+            <a class="media-btn" href="https://github.com/DataWhisker/x-mcp-server" target="_blank">Ver Repositorio MCP en GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P23: Asesor Táctico de Voz en Tiempo Real para Total War mediante MCP -->
+      <article class="card" data-category="code">
+        <div class="media-container">
+          <a href="https://x.com/daniellefong" target="_blank" class="media-link" title="▶ Ver Prueba Técnica en X">
+            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=85" alt="Asesor Táctico de Voz en Tiempo Real para Total War mediante MCP" class="media-thumb" loading="lazy">
+            <div class="media-overlay">
+              <span class="media-tag">🎙️ Visión y Voz en Tiempo Real</span>
+              <div class="play-badge">&#9658;</div>
+              <div class="media-caption">Inspección de buffer de pantalla mediante MCP para dar órdenes tácticas por voz en combate</div>
+            </div>
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-code">Agentes · Co-Piloto de Juego</span>
+            <div class="author-info">Por <strong>@daniellefong</strong></div>
+          </div>
+          <h2 class="card-title">Asesor Táctico de Voz en Tiempo Real para Total War mediante MCP</h2>
+          <div class="tweet-box">
+            "Conectó Claude Code mediante MCP para capturar y analizar capturas de pantalla de Total War: Three Kingdoms en segundo plano, evaluando la formación del ejército enemigo y dictando consejos tácticos por voz durante la batalla."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p23')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p23">MCP Background Loop: poll display buffer every 3s, send compressed frames to Claude vision API with military tactical prompt, stream analysis to TTS speech synthesizer for low-latency verbal battlefield advice.</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 1.9k · 🔁 430</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/daniellefong" target="_blank">Ver Perfil e Hilo en X (@daniellefong)</a>
+            <a class="media-btn" href="https://x.com/daniellefong" target="_blank">▶ Ver Prueba Técnica en X</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P24: Orquestación Multi-Agente MCP: Repositorios y Pull Requests Autónomos -->
+      <article class="card" data-category="code">
+        <div class="media-container">
+          <a href="https://x.com/alexalbert__/status/1861079762506252723" target="_blank" class="media-link" title="▶ Ver Video Demostrativo en X">
+            <img src="https://mintcdn.com/mcp/bEUxYpZqie0DsluH/images/mcp-simple-diagram.png?fit=max&auto=format&n=bEUxYpZqie0DsluH&q=85&s=35268aa0ad50b8c385913810e7604550" alt="Orquestación Multi-Agente MCP: Repositorios y Pull Requests Autónomos" class="media-thumb" loading="lazy">
+            <div class="media-overlay">
+              <span class="media-tag">⚡ Esquema Oficial · Anthropic MCP</span>
+              <div class="play-badge">&#9658;</div>
+              <div class="media-caption">Estándar abierto para conectar modelos con herramientas locales, bases de datos y GitHub</div>
+            </div>
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-code">Protocolos · Anthropic DevRel</span>
+            <div class="author-info">Por <strong>@alexalbert__</strong> (Anthropic)</div>
+          </div>
+          <h2 class="card-title">Orquestación Multi-Agente MCP: Repositorios y Pull Requests Autónomos</h2>
+          <div class="tweet-box">
+            "Demostración oficial de cómo el Model Context Protocol permite a modelos de lenguaje conectarse directamente al sistema de archivos y GitHub para crear repositorios, programar tests unitarios y abrir pull requests de forma autónoma."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p24')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p24">{
+  "server": "github-mcp",
+  "command": "create_pull_request",
+  "params": {
+    "repo": "anthropic/mcp-demo",
+    "branch": "feature/agentic-tests",
+    "title": "Automated MCP Integration Test Suite"
+  }
+}</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 9.0k · 🔁 2.3k</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/alexalbert__/status/1861079762506252723" target="_blank">Ver Tweet de Anuncio en X (@alexalbert__)</a>
+            <a class="media-btn" href="https://x.com/alexalbert__/status/1861079762506252723" target="_blank">▶ Ver Video Demostrativo en X</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P25: El Auge de las Micro-Apps: Software Descartable Generado en Minutos -->
+      <article class="card" data-category="code">
+        <div class="media-container">
+          <a href="https://x.com/karpathy" target="_blank" class="media-link" title="Ver Reflexión en X">
+            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=85" alt="El Auge de las Micro-Apps: Software Descartable Generado en Minutos" class="media-thumb" loading="lazy">
+            <div class="media-overlay">
+              <span class="media-tag">💡 Software 3.0 · @karpathy</span>
+              <div class="play-badge">&#9658;</div>
+              <div class="media-caption">Software descartable: interfaces y utilidades creadas por prompts en minutos como agua de grifo</div>
+            </div>
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-arch">Tendencias · Software 3.0</span>
+            <div class="author-info">Por <strong>@karpathy</strong></div>
+          </div>
+          <h2 class="card-title">El Auge de las Micro-Apps: Software Descartable Generado en Minutos</h2>
+          <div class="tweet-box">
+            "Karpathy reflexiona sobre cómo el software se está convirtiendo en un recurso instantáneo: pequeños visualizadores, herramientas de análisis y dashboards interactivos que se generan con un prompt en minutos y se descartan tras su uso."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p25')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p25">Prompt-to-Software paradigm: "Software 3.0 where disposable, highly specialized GUI tools, interactive dashboards, and interpreters are synthesized on the fly rather than downloaded as static apps."</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 14.3k · 🔁 3.8k</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/karpathy" target="_blank">Ver Publicación en X (@karpathy)</a>
+            <a class="media-btn" href="https://x.com/karpathy" target="_blank">Ver Reflexión en X</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <script>
+    function copyPrompt(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = event.target;
+        const originalText = btn.innerText;
+        btn.innerText = '¡Copiado!';
+        btn.style.background = '#34d399';
+        btn.style.color = '#020817';
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.style.background = '';
+          btn.style.color = '';
+        }, 1500);
+      });
+    }
+
+    function filterCards(cat) {
+      const cards = document.querySelectorAll('.card');
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+
+      cards.forEach(card => {
+        if (cat === 'all' || card.getAttribute('data-category') === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
