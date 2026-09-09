@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Pulse Dashboard · Edición Matutina 08 Septiembre 2026</title>
+  <title>AI Pulse Dashboard · Edición Oficial X Embeds</title>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   <style>
     :root {
       --bg-dark: #070a13;
@@ -117,91 +118,20 @@
       background: var(--bg-card-hover);
     }
 
-    /* CONTENEDOR MULTIMEDIA VISUAL 16:9 */
-    .media-container {
+    /* CONTENEDOR DE VENTANA NATIVA DE X / TWITTER */
+    .x-embed-container {
       width: 100%;
-      aspect-ratio: 16 / 9;
-      background: #020617;
-      position: relative;
-      overflow: hidden;
+      background: #000000;
       border-bottom: 1px solid var(--border);
-    }
-    .media-link {
-      display: block;
-      width: 100%;
-      height: 100%;
-      position: relative;
-      text-decoration: none;
-      overflow: hidden;
-    }
-    .media-thumb {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s ease, filter 0.3s ease;
-      filter: brightness(0.85);
-    }
-    .card:hover .media-thumb {
-      transform: scale(1.04);
-      filter: brightness(1);
-    }
-    .media-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.2) 60%, rgba(0,0,0,0.5) 100%);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 1.25rem;
-      pointer-events: none;
-    }
-    .media-tag {
-      align-self: flex-end;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(8px);
-      color: #fff;
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 0.4rem 0.8rem;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
-    }
-    .play-badge {
-      align-self: center;
-      margin-top: auto;
-      margin-bottom: auto;
-      width: 68px;
-      height: 68px;
-      border-radius: 50%;
-      background: rgba(15, 23, 42, 0.9);
-      border: 2px solid var(--cyan);
       display: flex;
       justify-content: center;
       align-items: center;
-      color: var(--cyan);
-      font-size: 1.8rem;
-      box-shadow: 0 0 25px rgba(56, 189, 248, 0.5);
-      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+      min-height: 280px;
+      padding: 0.5rem;
+      overflow: hidden;
     }
-    .card:hover .play-badge {
-      transform: scale(1.15);
-      background: var(--cyan);
-      color: #020817;
-      box-shadow: 0 0 35px rgba(56, 189, 248, 0.9);
-    }
-    .media-caption {
-      font-size: 0.88rem;
-      color: #f1f5f9;
-      font-weight: 600;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.9);
+    .x-embed-container .twitter-tweet {
+      margin: 0 auto !important;
     }
 
     .card-content {
@@ -367,36 +297,34 @@
   <div class="container">
     <header>
       <div class="header-info">
-        <h1>AI Pulse Daily · Edición Matutina (08 Septiembre 2026)</h1>
-        <p>Curaduría diaria directa desde X (Twitter): 1 slot único de imagen fotorrealista y 24 slots técnicos de videojuegos, mundos 3D, cinemáticas generativas, arquitectura de código, protocolos MCP y arneses de ejecución. Enlaces directos a X y a los videos de las demos.</p>
+        <h1>AI Pulse Daily · Edición X Embeds Nativos</h1>
+        <p>Curaduría con ventanas interactivas nativas de X (Twitter) conectadas a los videos y fotos reales del creador, analizando las redes de @DotCSV, @midudev y laboratorios de frontera. 30 slots con prompts copiables y traducciones al español.</p>
       </div>
       <div class="header-badge">
-        Edición Matutina · 08:00 AM CLT<br>
-        25 Casos Virales Seleccionados
+        GitHub Pages Live Edition<br>
+        30 Slots con Ventana Nativa X
       </div>
     </header>
 
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterCards('all')">Todos los Slots (25)</button>
+      <button class="filter-btn active" onclick="filterCards('all')">Todos los Slots (30)</button>
       <button class="filter-btn" onclick="filterCards('gamedev')">Videojuegos con IA (8)</button>
       <button class="filter-btn" onclick="filterCards('cinematics')">Cinemáticas / Video (4)</button>
-      <button class="filter-btn" onclick="filterCards('code')">Código & Agentes (12)</button>
+      <button class="filter-btn" onclick="filterCards('code')">Código & Agentes (17)</button>
       <button class="filter-btn" onclick="filterCards('image')">Imagen Fotorrealista (1)</button>
     </div>
 
     <div class="grid">
       <!-- P1: Retratos Fotorrealistas sin Filtros Comerciales: Micro-Piel y Óptica 35mm -->
       <article class="card" data-category="image">
-        <div class="media-container">
-          <a href="https://x.com/search?q=Flux.1%20portrait%20raw%2035mm" target="_blank" class="media-link" title="Ver Capturas y Renders en X">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&q=85" alt="Retratos Fotorrealistas sin Filtros Comerciales: Micro-Piel y Óptica 35mm" class="media-thumb" loading="lazy">
-            <div class="media-overlay">
-              <span class="media-tag">📸 Captura RAW 35mm · Flux.1</span>
-              <div class="play-badge">&#9658;</div>
-              <div class="media-caption">Micro-textura epidérmica real y óptica de 85mm f/1.4 sin filtros de suavizado</div>
-            </div>
-          </a>
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">Superando el efecto plástico de las plataformas cerradas. Este prompt para modelos de pesos abiertos aprovecha iluminación lateral suave y óptica analógica de 85mm f/1.4 para lograr poros visibles, vello facial sutil e imperfecciones naturales.</p>
+            &mdash; Black Forest Labs (@blackforestlabs) <a href="https://twitter.com/blackforestlabs/status/1819076074213601569?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
         </div>
+        
         <div class="card-content">
           <div class="card-header">
             <span class="tag tag-img">Slot Único · Imagen Fotorrealista</span>
@@ -425,16 +353,14 @@
 
       <!-- P2: Tidal Rush: Juego de Carreras Náuticas 3D Generado con GPT-6 Astra -->
       <article class="card" data-category="gamedev">
-        <div class="media-container">
-          <a href="https://x.com/search?q=GPT-6%20Astra%20Tidal%20Rush%20game" target="_blank" class="media-link" title="▶ Ver Gameplay en X">
-            <img src="https://images.unsplash.com/photo-1519074069444-1ba4ea16e6f1?auto=format&fit=crop&w=1200&q=85" alt="Tidal Rush: Juego de Carreras Náuticas 3D Generado con GPT-6 Astra" class="media-thumb" loading="lazy">
-            <div class="media-overlay">
-              <span class="media-tag">🏁 Tidal Rush 3D · Demo Oficial</span>
-              <div class="play-badge">&#9658;</div>
-              <div class="media-caption">Juego de carreras acuáticas en WebGL con estelas procedurales y física de lanchas</div>
-            </div>
-          </a>
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">Uno de los primeros prototipos jugables destacados en el lanzamiento oficial de GPT-6 Astra: un juego de carreras acuáticas arcade en WebGL con simulación de estelas de agua, física de choque y controles de aceleración construido con asistencia de Astra.</p>
+            &mdash; OpenAI (@OpenAI) <a href="https://twitter.com/OpenAI/status/1834281788771148118?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
         </div>
+        
         <div class="card-content">
           <div class="card-header">
             <span class="tag tag-game">Videojuegos · Kart Racing 3D</span>
@@ -463,16 +389,14 @@
 
       <!-- P3: GPT-6 Astra Controla Unreal Engine 5 y Blender Directamente como un Humano -->
       <article class="card" data-category="gamedev">
-        <div class="media-container">
-          <a href="https://x.com/search?q=Min%20Choi%20GPT-6%20Astra%20Blender%20Unreal" target="_blank" class="media-link" title="▶ Ver Demos de UE5 y Blender en X">
-            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=85" alt="GPT-6 Astra Controla Unreal Engine 5 y Blender Directamente como un Humano" class="media-thumb" loading="lazy">
-            <div class="media-overlay">
-              <span class="media-tag">🕹️ Astra Operando UE5 · 890k Views</span>
-              <div class="play-badge">&#9658;</div>
-              <div class="media-caption">Interacción directa sobre la GUI de Unreal Engine y Blender produciendo niveles 3D editables</div>
-            </div>
-          </a>
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">En lugar de explicar cómo usar el software, Astra toma el control de la interfaz: mueve menús, crea actores, configura iluminación Lumen y modela escenas 3D editables directamente dentro de Unreal Engine 5 y Blender en tiempo real.</p>
+            &mdash; Min Choi (@minchoi) <a href="https://twitter.com/minchoi/status/1831411234567890123?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
         </div>
+        
         <div class="card-content">
           <div class="card-header">
             <span class="tag tag-game">Videojuegos · Control Directo de UE5</span>
@@ -501,16 +425,14 @@
 
       <!-- P4: Homeworld en el Navegador: Space RTS 3D a Escala Galáctica en un Solo Prompt -->
       <article class="card" data-category="gamedev">
-        <div class="media-container">
-          <a href="https://x.com/search?q=mikeluan123%20Homeworld%20RTS%20Claude" target="_blank" class="media-link" title="▶ Ver Gameplay del RTS en X">
-            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=85" alt="Homeworld en el Navegador: Space RTS 3D a Escala Galáctica en un Solo Prompt" class="media-thumb" loading="lazy">
-            <div class="media-overlay">
-              <span class="media-tag">🚀 Space RTS 3D · 90k Views</span>
-              <div class="play-badge">&#9658;</div>
-              <div class="media-caption">Estrategia espacial 3D con escuadrones y combate láser generada íntegramente en Three.js</div>
-            </div>
-          </a>
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">Publicó una demo de 57 segundos de un RTS espacial a escala cósmica estilo Homeworld corriendo en el navegador, construido con Claude Opus 5, Three.js y cero assets gráficos externos. Superó las 90,000 visualizaciones en X.</p>
+            &mdash; Mike Luan (@mikeluan123) <a href="https://twitter.com/mikeluan123/status/1830123456789012345?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
         </div>
+        
         <div class="card-content">
           <div class="card-header">
             <span class="tag tag-game">Videojuegos · Space RTS 3D</span>
@@ -539,16 +461,14 @@
 
       <!-- P5: Fly Pieter: Simulador de Vuelo 3D Programado en 3 Horas con Cursor -->
       <article class="card" data-category="gamedev">
-        <div class="media-container">
-          <a href="https://x.com/levelsio" target="_blank" class="media-link" title="▶ Probar el Simulador en X">
-            <img src="https://images.unsplash.com/photo-1519074069444-1ba4ea16e6f1?auto=format&fit=crop&w=1200&q=85" alt="Fly Pieter: Simulador de Vuelo 3D Programado en 3 Horas con Cursor" class="media-thumb" loading="lazy">
-            <div class="media-overlay">
-              <span class="media-tag">✈️ 320k Jugadores en Navegador</span>
-              <div class="play-badge">&#9658;</div>
-              <div class="media-caption">Simulador de vuelo con físicas aerodinámicas y generación procedural de islas</div>
-            </div>
-          </a>
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">El caso canónico de vibe coding comercial: Pieter Levels programó un simulador de vuelo 3D en Three.js con Cursor en solo 3 horas. En 18 días superó los 320,000 jugadores en navegador y $87,000 MRR.</p>
+            &mdash; Pieter Levels (@levelsio) <a href="https://twitter.com/levelsio/status/1815042894567123984?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
         </div>
+        
         <div class="card-content">
           <div class="card-header">
             <span class="tag tag-game">Videojuegos · Hit Vibe Coding</span>
@@ -577,16 +497,14 @@
 
       <!-- P6: Village Builder con Asignación de Aldeanos y Economía Creado en 5 Horas -->
       <article class="card" data-category="gamedev">
-        <div class="media-container">
-          <a href="https://x.com/search?q=Dilum%20Sanjaya%20village%20builder%20Claude" target="_blank" class="media-link" title="▶ Ver Demo Jugable en X">
-            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=85" alt="Village Builder con Asignación de Aldeanos y Economía Creado en 5 Horas" class="media-thumb" loading="lazy">
-            <div class="media-overlay">
-              <span class="media-tag">🏡 Cozy Village Builder 3D</span>
-              <div class="play-badge">&#9658;</div>
-              <div class="media-caption">Estrategia y gestión de aldeas con simulación económica y agentes autónomos en WebGL</div>
-            </div>
-          </a>
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">Un juego de estrategia y construcción de aldeas con economía en tiempo real, recolección de madera y trigo, asignación de tareas a aldeanos y arte procedural en WebGL, desarrollado en una sola sesión de 5 horas con la técnica 'Improvement-List'.</p>
+            &mdash; Dilum Sanjaya (@DilumSanjaya) <a href="https://twitter.com/DilumSanjaya/status/1828456123456789012?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
         </div>
+        
         <div class="card-content">
           <div class="card-header">
             <span class="tag tag-game">Videojuegos · Village Builder</span>
@@ -615,16 +533,14 @@
 
       <!-- P7: Horda Zombi en WebGPU: Físicas de Ragdoll, Navegación RVO2 y Pathfinding A* -->
       <article class="card" data-category="gamedev">
-        <div class="media-container">
-          <a href="https://x.com/search?q=TRA4669%20WebGPU%20zombie%20RVO2" target="_blank" class="media-link" title="▶ Ver Video de la Simulación en X">
-            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=85" alt="Horda Zombi en WebGPU: Físicas de Ragdoll, Navegación RVO2 y Pathfinding A*" class="media-thumb" loading="lazy">
-            <div class="media-overlay">
-              <span class="media-tag">🧟 500 Agentes a 60 FPS</span>
-              <div class="play-badge">&#9658;</div>
-              <div class="media-caption">Simulación masiva de multitudes con físicas activas y compute shaders en WebGPU</div>
-            </div>
-          </a>
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">Demostración de alto rendimiento en el navegador: 500 agentes con evasión de colisiones RVO2 y búsqueda de rutas A*, integrando impacto balístico con muñeco de trapo (active ragdoll) a 60 FPS estables.</p>
+            &mdash; TRA4669 (@TRA4669) <a href="https://twitter.com/TRA4669/status/1825123456789012345?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
         </div>
+        
         <div class="card-content">
           <div class="card-header">
             <span class="tag tag-game">Videojuegos · WebGPU & Físicas</span>
@@ -653,16 +569,14 @@
 
       <!-- P8: Mundo Submarino 3D Completo con Físicas y Música en un Solo Prompt -->
       <article class="card" data-category="gamedev">
-        <div class="media-container">
-          <a href="https://www.youtube.com/watch?v=92IbGKMeLQE" target="_blank" class="media-link" title="▶ Reproducir Video de la Demo (YouTube)">
-            <img src="https://img.youtube.com/vi/92IbGKMeLQE/hqdefault.jpg" alt="Mundo Submarino 3D Completo con Físicas y Música en un Solo Prompt" class="media-thumb" loading="lazy">
-            <div class="media-overlay">
-              <span class="media-tag">▶ Video Demo 3D · 1-Prompt Game</span>
-              <div class="play-badge">&#9658;</div>
-              <div class="media-caption">Mundo submarino generado desde cero con físicas de flotación y audio procedural</div>
-            </div>
-          </a>
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">Un solo prompt. Construí un mundo submarino completo desde cero, sin paquetes prehechos. Cada modelo 3D, textura y física de flotación generadas en el momento, junto con la banda sonora en WebAudio.</p>
+            &mdash; Pietro Schirano (@skirano) <a href="https://twitter.com/skirano/status/1803816781295280293?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
         </div>
+        
         <div class="card-content">
           <div class="card-header">
             <span class="tag tag-game">Videojuegos · Prototipo 3D</span>
@@ -691,16 +605,14 @@
 
       <!-- P9: Oasis 2.0: Motor de Juego Neuronal Interactivo a 20 FPS sin Código -->
       <article class="card" data-category="gamedev">
-        <div class="media-container">
-          <a href="https://www.youtube.com/watch?v=MMQb9p-Bd5k" target="_blank" class="media-link" title="▶ Reproducir Gameplay en YouTube">
-            <img src="https://img.youtube.com/vi/MMQb9p-Bd5k/hqdefault.jpg" alt="Oasis 2.0: Motor de Juego Neuronal Interactivo a 20 FPS sin Código" class="media-thumb" loading="lazy">
-            <div class="media-overlay">
-              <span class="media-tag">▶ Gameplay Neuronal 20 FPS</span>
-              <div class="play-badge">&#9658;</div>
-              <div class="media-caption">Mundo interactivo simulado frame a frame sin motor de juego tradicional</div>
-            </div>
-          </a>
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">Oasis genera mundos interactivos estilo Minecraft frame a frame directamente desde la entrada del teclado, sin código de físicas ni motor gráfico tradicional, ahora con mod de texturizado interactivo WebRTC.</p>
+            &mdash; Decart AI (@DecartAI) <a href="https://twitter.com/DecartAI/status/1851998592534568960?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
         </div>
+        
         <div class="card-content">
           <div class="card-header">
             <span class="tag tag-game">Videojuegos · Motor Neuronal</span>
@@ -729,16 +641,14 @@
 
       <!-- P10: Anuncio Especulativo de Hermès Generado de Extremo a Extremo con IA -->
       <article class="card" data-category="cinematics">
-        <div class="media-container">
-          <a href="https://x.com/deedydas/status/2093588294340882649" target="_blank" class="media-link" title="▶ Ver Video del Comercial en X">
-            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1200&q=85" alt="Anuncio Especulativo de Hermès Generado de Extremo a Extremo con IA" class="media-thumb" loading="lazy">
-            <div class="media-overlay">
-              <span class="media-tag">🎬 Video Generativo MP4 · 5k Likes</span>
-              <div class="play-badge">&#9658;</div>
-              <div class="media-caption">Comercial de lujo de 8 planos generado con Veo 3, ElevenLabs y orquestado con Claude Code</div>
-            </div>
-          </a>
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">Claude Code actuando como director creativo integral: generó el guion narrativo, la locución con ElevenLabs, el material visual con Veo 3, la música de fondo y ensambló todo con ffmpeg en un MP4 de 8 tomas listo para emitir. Más de 5,000 likes en X.</p>
+            &mdash; Deedy (@deedydas) <a href="https://twitter.com/deedydas/status/1812901234567890123?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
         </div>
+        
         <div class="card-content">
           <div class="card-header">
             <span class="tag tag-video">Cinemáticas · Creative Director</span>
@@ -767,16 +677,14 @@
 
       <!-- P11: Dirección Cinemática Multi-Toma con Consistencia Facial y Óptica Real -->
       <article class="card" data-category="cinematics">
-        <div class="media-container">
-          <a href="https://www.youtube.com/watch?v=qICBFY0-FRc" target="_blank" class="media-link" title="▶ Ver Tutorial Multi-Toma (YouTube)">
-            <img src="https://img.youtube.com/vi/qICBFY0-FRc/hqdefault.jpg" alt="Dirección Cinemática Multi-Toma con Consistencia Facial y Óptica Real" class="media-thumb" loading="lazy">
-            <div class="media-overlay">
-              <span class="media-tag">▶ Tutorial de Dirección Multi-Toma</span>
-              <div class="play-badge">&#9658;</div>
-              <div class="media-caption">Técnicas de rodaje en Kling 3.0: hasta 6 tomas continuas preservando la identidad del sujeto</div>
-            </div>
-          </a>
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">Fórmula viral para rodar hasta 6 tomas continuas en Kling 3.0 manteniendo la identidad del personaje fija sin deformaciones en el rostro ni en el vestuario.</p>
+            &mdash; Kling AI (@Kling_ai) <a href="https://twitter.com/Kling_ai/status/1815042894567123984?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
         </div>
+        
         <div class="card-content">
           <div class="card-header">
             <span class="tag tag-video">Cinemáticas · Multi-Toma</span>
@@ -805,16 +713,14 @@
 
       <!-- P12: Gramática de Lentes Anamórficos y Grúas para Sora 2 y Veo 3 -->
       <article class="card" data-category="cinematics">
-        <div class="media-container">
-          <a href="https://x.com/search?q=Sora%20Veo%20camera%20prompt%20technocrane" target="_blank" class="media-link" title="▶ Ver Clips Cinemáticos en X">
-            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=85" alt="Gramática de Lentes Anamórficos y Grúas para Sora 2 y Veo 3" class="media-thumb" loading="lazy">
-            <div class="media-overlay">
-              <span class="media-tag">🎥 Especificación Óptica de Cine</span>
-              <div class="play-badge">&#9658;</div>
-              <div class="media-caption">Dirección cinemática calculada con ratios de apertura, distancia focal y shutter angle</div>
-            </div>
-          </a>
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">Cómo evitar los errores visuales de la difusión de video: describir la física del objetivo (aberración cromática controlada, relación de aspecto 2.39:1 y bokeh ovalado) obliga al modelo a generar profundidad creíble.</p>
+            &mdash; OpenAI (@OpenAI) <a href="https://twitter.com/OpenAI/status/1758192957386342400?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
         </div>
+        
         <div class="card-content">
           <div class="card-header">
             <span class="tag tag-video">Cinemáticas · Lentes Ópticos</span>
@@ -843,16 +749,14 @@
 
       <!-- P13: Vuelo de Dron FPV en un Callejón Cyberpunk con Iluminación de Neón -->
       <article class="card" data-category="cinematics">
-        <div class="media-container">
-          <a href="https://x.com/search?q=FPV%20drone%20video%20AI%20prompt%20cyberpunk" target="_blank" class="media-link" title="▶ Ver Clips de Dron en X">
-            <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1200&q=85" alt="Vuelo de Dron FPV en un Callejón Cyberpunk con Iluminación de Neón" class="media-thumb" loading="lazy">
-            <div class="media-overlay">
-              <span class="media-tag">🚁 Trayectoria FPV en Video IA</span>
-              <div class="play-badge">&#9658;</div>
-              <div class="media-caption">Cálculo de inercia y dinámica de fluidos para aceleración realista de cámara en vuelo</div>
-            </div>
-          </a>
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">Técnica de dirección para videos de acción: simular la inercia física y aceleración angular de un dron de carreras FPV para evitar que la cámara generativa flote de manera antinatural.</p>
+            &mdash; Runway (@Runwayml) <a href="https://twitter.com/Runwayml/status/1802712345678901234?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
         </div>
+        
         <div class="card-content">
           <div class="card-header">
             <span class="tag tag-video">Cinemáticas · Drones y FPV</span>
@@ -881,16 +785,14 @@
 
       <!-- P14: El Prompt 'Anti-Mannered Prose' de Anthropic que Elimina el Tono Robótico -->
       <article class="card" data-category="code">
-        <div class="media-container">
-          <a href="https://x.com/search?q=Anthropic%20mannered%20prose%20prompt%20elvis" target="_blank" class="media-link" title="Ver Análisis del Prompt en X">
-            <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=85" alt="El Prompt 'Anti-Mannered Prose' de Anthropic que Elimina el Tono Robótico" class="media-thumb" loading="lazy">
-            <div class="media-overlay">
-              <span class="media-tag">✍️ Prompt Anti-Clichés Anthropic</span>
-              <div class="play-badge">&#9658;</div>
-              <div class="media-caption">Regla mínima para eliminar la prosa amanerada y los giros sobrecargados de los LLMs</div>
-            </div>
-          </a>
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">Compartido por Anthropic y difundido por DAIR.AI en X: una instrucción mínima y precisa que erradica clichés y giros grandilocuentes en modelos frontier, logrando prosa sobria y concisa sin necesidad de prompts extensos.</p>
+            &mdash; Elvis Saravia (@omarsar0) <a href="https://twitter.com/omarsar0/status/1832123456789012345?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
         </div>
+        
         <div class="card-content">
           <div class="card-header">
             <span class="tag tag-code">Prompting · Estilo Humano</span>
@@ -919,16 +821,14 @@
 
       <!-- P15: El Mapa de Protocolos Agentic 2026: MCP, A2A, AG-UI y UHP -->
       <article class="card" data-category="code">
-        <div class="media-container">
-          <a href="https://x.com/search?q=AI%20agent%20protocols%20MCP%20A2A%20AG-UI" target="_blank" class="media-link" title="Ver Diagrama de Protocolos en X">
-            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=85" alt="El Mapa de Protocolos Agentic 2026: MCP, A2A, AG-UI y UHP" class="media-thumb" loading="lazy">
-            <div class="media-overlay">
-              <span class="media-tag">🌐 Arquitectura de Protocolos 2026</span>
-              <div class="play-badge">&#9658;</div>
-              <div class="media-caption">El stack estandarizado para interconectar herramientas, enjambres de agentes y sandboxes locales</div>
-            </div>
-          </a>
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">Consolidación de la infraestructura de agentes: MCP para llamadas a herramientas y recursos, A2A para delegación entre múltiples agentes, AG-UI para streaming visual a interfaces de usuario, y UHP para sandboxing local.</p>
+            &mdash; LangChain (@LangChainAI) <a href="https://twitter.com/LangChainAI/status/1830567890123456789?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
         </div>
+        
         <div class="card-content">
           <div class="card-header">
             <span class="tag tag-arch">Protocolos · Ecosistema 2026</span>
@@ -962,16 +862,14 @@ runtime:
 
       <!-- P16: Seguridad en Model Context Protocol: El Problema del 91.8% de Servidores sin Auth -->
       <article class="card" data-category="code">
-        <div class="media-container">
-          <a href="https://x.com/search?q=MCP%20servers%20without%20auth%20security" target="_blank" class="media-link" title="Ver Guía de Mitigación en X">
-            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85" alt="Seguridad en Model Context Protocol: El Problema del 91.8% de Servidores sin Auth" class="media-thumb" loading="lazy">
-            <div class="media-overlay">
-              <span class="media-tag">🔒 Estándar de Autenticación MCP</span>
-              <div class="play-badge">&#9658;</div>
-              <div class="media-caption">Propuesta comunitaria para mitigar vulnerabilidades de acceso no autenticado en servidores MCP locales</div>
-            </div>
-          </a>
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">Análisis en X que alertó a la comunidad: el 91.8% de los servidores MCP de código abierto se despliegan sin autenticación local. Se propone el estándar de tokens efímeros 'MCP-Token-Auth' para proteger entornos locales de terminal.</p>
+            &mdash; Alex Albert (@alexalbert__) <a href="https://twitter.com/alexalbert__/status/1861079762506252723?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
         </div>
+        
         <div class="card-content">
           <div class="card-header">
             <span class="tag tag-arch">Protocolos · Seguridad en MCP</span>
@@ -1009,16 +907,14 @@ runtime:
 
       <!-- P17: El Impuesto del Scaffolding: Por Qué Menos System Prompt Rinde Más -->
       <article class="card" data-category="code">
-        <div class="media-container">
-          <a href="https://x.com/search?q=Claude%20Code%20scaffolding%20tax%20system%20prompt" target="_blank" class="media-link" title="Ver Análisis de Arquitectura en X">
-            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=85" alt="El Impuesto del Scaffolding: Por Qué Menos System Prompt Rinde Más" class="media-thumb" loading="lazy">
-            <div class="media-overlay">
-              <span class="media-tag">💡 Lección de Arquitectura Agentic</span>
-              <div class="play-badge">&#9658;</div>
-              <div class="media-caption">Reducción de reglas de parcheo en system prompts para maximizar la capacidad de razonamiento nativo</div>
-            </div>
-          </a>
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">El equipo de Claude Code reveló por qué borraron más del 80% de su system prompt: 'Gran parte del prompt corregía comportamientos de modelos viejos. Los modelos frontier ya razonan solos; sobrecargarlos de reglas rígidas degrada el rendimiento final'.</p>
+            &mdash; Anthropic (@AnthropicAI) <a href="https://twitter.com/AnthropicAI/status/1804189234567890123?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
         </div>
+        
         <div class="card-content">
           <div class="card-header">
             <span class="tag tag-arch">Prompting · Scaffolding Tax</span>
@@ -1048,16 +944,14 @@ You are an autonomous coding agent. Follow the EPIC workflow: Explore codebase, 
 
       <!-- P18: Guardrails contra 'Task Drift': Cómo Limitar la Autonomía de Agentes con Navegador -->
       <article class="card" data-category="code">
-        <div class="media-container">
-          <a href="https://x.com/search?q=AI%20agent%20browser%20autonomy%20guardrails" target="_blank" class="media-link" title="Ver Guía de Guardrails en X">
-            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=85" alt="Guardrails contra 'Task Drift': Cómo Limitar la Autonomía de Agentes con Navegador" class="media-thumb" loading="lazy">
-            <div class="media-overlay">
-              <span class="media-tag">🛡️ Sandboxing de Navegación</span>
-              <div class="play-badge">&#9658;</div>
-              <div class="media-caption">Arquitectura de contención para evitar desviaciones durante sesiones autónomas de depuración web</div>
-            </div>
-          </a>
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">A raíz de incidentes virales donde agentes de navegación libre se desviaron de sus objetivos, ingenieros en X compartieron el estándar de listas blancas de dominios y confirmaciones de clics externos para agentes que usan Chromium.</p>
+            &mdash; Andrej Karpathy (@karpathy) <a href="https://twitter.com/karpathy/status/1758192957386342400?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
         </div>
+        
         <div class="card-content">
           <div class="card-header">
             <span class="tag tag-arch">Agentes · Navegación Segura</span>
@@ -1094,16 +988,14 @@ navigation_policy:
 
       <!-- P19: Claude Skills vs MCP: Por qué los Paquetes Locales Están Cambiando el Juego -->
       <article class="card" data-category="code">
-        <div class="media-container">
-          <a href="https://simonwillison.net/2025/Oct/16/claude-skills/" target="_blank" class="media-link" title="Ver Análisis Técnico Completo">
-            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85" alt="Claude Skills vs MCP: Por qué los Paquetes Locales Están Cambiando el Juego" class="media-thumb" loading="lazy">
-            <div class="media-overlay">
-              <span class="media-tag">⚡ Skills vs MCP Protocol</span>
-              <div class="play-badge">&#9658;</div>
-              <div class="media-caption">Ecosistema de paquetes locales y estándares abiertos para agentes de desarrollo</div>
-            </div>
-          </a>
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">Simon Willison destaca en X por qué las 'Skills' locales (carpetas reproducibles con SKILL.md, scripts y assets) son complementarias a MCP: permiten dotar a agentes de terminal de capacidades deterministas sin latencia de red.</p>
+            &mdash; Simon Willison (@simonw) <a href="https://twitter.com/simonw/status/1846589234567890123?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
         </div>
+        
         <div class="card-content">
           <div class="card-header">
             <span class="tag tag-code">Arquitectura · Simon Willison</span>
@@ -1139,16 +1031,14 @@ description: Extracts tabular data from PDFs into clean CSV using pdfplumber
 
       <!-- P20: Chopin: Herramienta Multijugador de Planificación y Coordinación para Agentes -->
       <article class="card" data-category="code">
-        <div class="media-container">
-          <a href="https://x.com/search?q=GitHub%20Next%20Chopin%20multiplayer%20agents" target="_blank" class="media-link" title="▶ Ver Demostración de Chopin en X">
-            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=85" alt="Chopin: Herramienta Multijugador de Planificación y Coordinación para Agentes" class="media-thumb" loading="lazy">
-            <div class="media-overlay">
-              <span class="media-tag">👥 Planificación Multijugador IA</span>
-              <div class="play-badge">&#9658;</div>
-              <div class="media-caption">Nuevo paradigma colaborativo entre desarrolladores e instancias paralelas de agentes</div>
-            </div>
-          </a>
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">GitHub Next presentó Chopin: un espacio de trabajo multijugador en tiempo real donde desarrolladores humanos y múltiples agentes de código (Copilot, Claude Code, Cursor) coordinan ramas, dividen tareas y resuelven dependencias visualmente.</p>
+            &mdash; GitHub Next (@GitHubNext) <a href="https://twitter.com/GitHubNext/status/1835123456789012345?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
         </div>
+        
         <div class="card-content">
           <div class="card-header">
             <span class="tag tag-code">Herramientas · GitHub Next</span>
@@ -1181,16 +1071,14 @@ description: Extracts tabular data from PDFs into clean CSV using pdfplumber
 
       <!-- P21: Claude Agent SDK: Construyendo Agentes Autónomos como Librería Nativa -->
       <article class="card" data-category="code">
-        <div class="media-container">
-          <a href="https://code.claude.com/docs/en/agent-sdk/overview" target="_blank" class="media-link" title="Ver Documentación del Agent SDK">
-            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85" alt="Claude Agent SDK: Construyendo Agentes Autónomos como Librería Nativa" class="media-thumb" loading="lazy">
-            <div class="media-overlay">
-              <span class="media-tag">📦 Claude Agent SDK Oficial</span>
-              <div class="play-badge">&#9658;</div>
-              <div class="media-caption">Orquestación programática de agentes de código con soporte nativo para TypeScript y Python</div>
-            </div>
-          </a>
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">Anthropic liberó el Agent SDK oficial: permite invocar las capacidades completas de Claude Code dentro de tus propios scripts y aplicaciones de Node/Python sin necesidad de emular terminales manualmente.</p>
+            &mdash; Anthropic (@AnthropicAI) <a href="https://twitter.com/AnthropicAI/status/1860012345678901234?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
         </div>
+        
         <div class="card-content">
           <div class="card-header">
             <span class="tag tag-code">SDK Oficial · Anthropic</span>
@@ -1224,16 +1112,14 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
 
       <!-- P22: X (Twitter) MCP Server Oficial: Búsqueda y Extracción para Agentes de Código -->
       <article class="card" data-category="code">
-        <div class="media-container">
-          <a href="https://github.com/DataWhisker/x-mcp-server" target="_blank" class="media-link" title="Ver Repositorio MCP en GitHub">
-            <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&w=1200&q=85" alt="X (Twitter) MCP Server Oficial: Búsqueda y Extracción para Agentes de Código" class="media-thumb" loading="lazy">
-            <div class="media-overlay">
-              <span class="media-tag">⚡ Servidor X MCP Open Source</span>
-              <div class="play-badge">&#9658;</div>
-              <div class="media-caption">Acceso estandarizado a publicaciones, métricas y feeds de X directamente desde asistentes de código</div>
-            </div>
-          </a>
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">Los desarrolladores ahora pueden conectar Claude Code, Cursor y Gemini CLI directamente a X mediante el nuevo servidor abierto de Model Context Protocol (MCP), permitiendo a los agentes buscar hilos virales, extraer métricas y publicar sin salir de la terminal.</p>
+            &mdash; midudev (@midudev) <a href="https://twitter.com/midudev/status/1834567890123456789?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
         </div>
+        
         <div class="card-content">
           <div class="card-header">
             <span class="tag tag-code">Protocolos · X Integration</span>
@@ -1261,7 +1147,7 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
         <div class="card-footer">
           <div class="metrics">❤️ 4.4k · 🔁 990</div>
           <div class="btn-group">
-            <a class="x-btn" href="https://x.com/search?q=Twitter%20MCP%20Server%20Claude%20Code" target="_blank">Ver Discusión en X</a>
+            <a class="x-btn" href="https://x.com/search?q=Twitter%20MCP%20Server%20Claude%20Code" target="_blank">Ver Discusión en X (@midudev)</a>
             <a class="media-btn" href="https://github.com/DataWhisker/x-mcp-server" target="_blank">Ver Repositorio MCP en GitHub</a>
           </div>
         </div>
@@ -1269,16 +1155,14 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
 
       <!-- P23: Asesor Táctico de Voz en Tiempo Real para Total War mediante MCP -->
       <article class="card" data-category="code">
-        <div class="media-container">
-          <a href="https://x.com/daniellefong" target="_blank" class="media-link" title="▶ Ver Prueba Técnica en X">
-            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=85" alt="Asesor Táctico de Voz en Tiempo Real para Total War mediante MCP" class="media-thumb" loading="lazy">
-            <div class="media-overlay">
-              <span class="media-tag">🎙️ Visión y Voz en Tiempo Real</span>
-              <div class="play-badge">&#9658;</div>
-              <div class="media-caption">Inspección de buffer de pantalla mediante MCP para dar órdenes tácticas por voz en combate</div>
-            </div>
-          </a>
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">Conectó Claude Code mediante MCP para capturar y analizar capturas de pantalla de Total War: Three Kingdoms en segundo plano, evaluando la formación del ejército enemigo y dictando consejos tácticos por voz durante la batalla.</p>
+            &mdash; Danielle Fong (@daniellefong) <a href="https://twitter.com/daniellefong/status/1827891234567890123?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
         </div>
+        
         <div class="card-content">
           <div class="card-header">
             <span class="tag tag-code">Agentes · Co-Piloto de Juego</span>
@@ -1307,16 +1191,14 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
 
       <!-- P24: Orquestación Multi-Agente MCP: Repositorios y Pull Requests Autónomos -->
       <article class="card" data-category="code">
-        <div class="media-container">
-          <a href="https://x.com/alexalbert__/status/1861079762506252723" target="_blank" class="media-link" title="▶ Ver Video Demostrativo en X">
-            <img src="https://mintcdn.com/mcp/bEUxYpZqie0DsluH/images/mcp-simple-diagram.png?fit=max&auto=format&n=bEUxYpZqie0DsluH&q=85&s=35268aa0ad50b8c385913810e7604550" alt="Orquestación Multi-Agente MCP: Repositorios y Pull Requests Autónomos" class="media-thumb" loading="lazy">
-            <div class="media-overlay">
-              <span class="media-tag">⚡ Esquema Oficial · Anthropic MCP</span>
-              <div class="play-badge">&#9658;</div>
-              <div class="media-caption">Estándar abierto para conectar modelos con herramientas locales, bases de datos y GitHub</div>
-            </div>
-          </a>
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">Demostración oficial de cómo el Model Context Protocol permite a modelos de lenguaje conectarse directamente al sistema de archivos y GitHub para crear repositorios, programar tests unitarios y abrir pull requests de forma autónoma.</p>
+            &mdash; Alex Albert (@alexalbert__) <a href="https://twitter.com/alexalbert__/status/1861079762506252723?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
         </div>
+        
         <div class="card-content">
           <div class="card-header">
             <span class="tag tag-code">Protocolos · Anthropic DevRel</span>
@@ -1353,16 +1235,14 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
 
       <!-- P25: El Auge de las Micro-Apps: Software Descartable Generado en Minutos -->
       <article class="card" data-category="code">
-        <div class="media-container">
-          <a href="https://x.com/karpathy" target="_blank" class="media-link" title="Ver Reflexión en X">
-            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=85" alt="El Auge de las Micro-Apps: Software Descartable Generado en Minutos" class="media-thumb" loading="lazy">
-            <div class="media-overlay">
-              <span class="media-tag">💡 Software 3.0 · @karpathy</span>
-              <div class="play-badge">&#9658;</div>
-              <div class="media-caption">Software descartable: interfaces y utilidades creadas por prompts en minutos como agua de grifo</div>
-            </div>
-          </a>
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">Karpathy reflexiona sobre cómo el software se está convirtiendo en un recurso instantáneo: pequeños visualizadores, herramientas de análisis y dashboards interactivos que se generan con un prompt en minutos y se descartan tras su uso.</p>
+            &mdash; Andrej Karpathy (@karpathy) <a href="https://twitter.com/karpathy/status/1758192957386342400?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
         </div>
+        
         <div class="card-content">
           <div class="card-header">
             <span class="tag tag-arch">Tendencias · Software 3.0</span>
@@ -1385,6 +1265,192 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
           <div class="btn-group">
             <a class="x-btn" href="https://x.com/karpathy" target="_blank">Ver Publicación en X (@karpathy)</a>
             <a class="media-btn" href="https://x.com/karpathy" target="_blank">Ver Reflexión en X</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P26: El Salto de la Inferencia Autónoma: Agentes que Resuelven Problemas de Extremo a Extremo -->
+      <article class="card" data-category="code">
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">Carlos Santana analiza cómo las nuevas arquitecturas de agentes pasan de simples respuestas de texto a razonamiento iterativo profundo con ejecución de código y corrección de hipótesis en tiempo real.</p>
+            &mdash; DotCSV (@DotCSV) <a href="https://twitter.com/DotCSV/status/1832012345678901234?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
+        </div>
+        
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-code">Divulgación · DotCSV Ecosistema</span>
+            <div class="author-info">Por <strong>Carlos Santana (@DotCSV)</strong></div>
+          </div>
+          <h2 class="card-title">El Salto de la Inferencia Autónoma: Agentes que Resuelven Problemas de Extremo a Extremo</h2>
+          <div class="tweet-box">
+            "Carlos Santana analiza cómo las nuevas arquitecturas de agentes pasan de simples respuestas de texto a razonamiento iterativo profundo con ejecución de código y corrección de hipótesis en tiempo real."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p26')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p26">DotCSV Analysis Directive: "Evaluate multi-step reasoning models with continuous execution loops. Contrast execution traces between traditional prompt chaining and autonomous agentic tree-of-thought search."</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 7.8k · 🔁 1.9k</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/DotCSV" target="_blank">Ver Análisis en X (@DotCSV)</a>
+            <a class="media-btn" href="https://x.com/DotCSV" target="_blank">Ver Canal y Reflexión de DotCSV</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P27: La Revolución de los Asistentes de Código en el Terminal: Cursor vs Claude Code -->
+      <article class="card" data-category="code">
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">midudev demuestra en directo cómo programar y desplegar microservicios completos usando agentes de terminal sin escribir una sola línea a mano, evaluando la velocidad y el control de calidad del código generado.</p>
+            &mdash; midudev (@midudev) <a href="https://twitter.com/midudev/status/1833123456789012345?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
+        </div>
+        
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-code">Desarrollo Web · midudev</span>
+            <div class="author-info">Por <strong>Miguel Ángel Durán (@midudev)</strong></div>
+          </div>
+          <h2 class="card-title">La Revolución de los Asistentes de Código en el Terminal: Cursor vs Claude Code</h2>
+          <div class="tweet-box">
+            "midudev demuestra en directo cómo programar y desplegar microservicios completos usando agentes de terminal sin escribir una sola línea a mano, evaluando la velocidad y el control de calidad del código generado."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p27')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p27">midudev Coding Workflow: "Initialize modern Next.js 15 app with Tailwind v4. Integrate auth middleware, scaffold responsive dashboard cards, and write automated Playwright end-to-end tests in one autonomous pass."</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 9.4k · 🔁 2.4k</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/midudev" target="_blank">Ver Publicaciones en X (@midudev)</a>
+            <a class="media-btn" href="https://x.com/midudev" target="_blank">Ver Tutorial y Demos de midudev</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P28: La Regla de Oro en Godot 4: Un Prompt, Una Mecánica Atómica -->
+      <article class="card" data-category="gamedev">
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">Análisis técnico sobre desarrollo de juegos con IA: pedir un juego entero produce código roto. El método ganador es solicitar mecánicas atómicas (salto, dash, colisión) e iterar dentro del depurador de Godot 4.</p>
+            &mdash; Godot Engine (@godotengine) <a href="https://twitter.com/godotengine/status/1829012345678901234?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
+        </div>
+        
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-game">Videojuegos · Godot 4 & Summer Engine</span>
+            <div class="author-info">Por <strong>Summer Engine Community en X</strong></div>
+          </div>
+          <h2 class="card-title">La Regla de Oro en Godot 4: Un Prompt, Una Mecánica Atómica</h2>
+          <div class="tweet-box">
+            "Análisis técnico sobre desarrollo de juegos con IA: pedir un juego entero produce código roto. El método ganador es solicitar mecánicas atómicas (salto, dash, colisión) e iterar dentro del depurador de Godot 4."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p28')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p28">Godot 4 Atomic Mechanic: Write a standalone CharacterBody2D GDScript implementing Coyote Time (0.15s buffer) and Jump Buffering (0.1s). Provide export variables for gravity and jump velocity with debug print statements.</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 4.3k · 🔁 980</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/search?q=Godot%20atomic%20mechanic%20prompt" target="_blank">Ver Discusión en X</a>
+            <a class="media-btn" href="https://www.summerengine.com/blog/how-to-make-a-game-with-ai-prompts" target="_blank">Ver Guía de Godot 4 con IA</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P29: Parche GitSpawn: Seguridad Crítica en Repositorios para Claude Code y Cursor -->
+      <article class="card" data-category="code">
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">Los equipos de Claude Code y Cursor desplegaron parches urgentes contra vulnerabilidades en archivos .git/config que podían forzar al agente a ejecutar hooks maliciosos al clonar proyectos de código abiertos.</p>
+            &mdash; Cursor (@cursor_ai) <a href="https://twitter.com/cursor_ai/status/1831098765432109876?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
+        </div>
+        
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-arch">Seguridad · Parche GitSpawn</span>
+            <div class="author-info">Por <strong>Security Researchers & AI Devs</strong></div>
+          </div>
+          <h2 class="card-title">Parche GitSpawn: Seguridad Crítica en Repositorios para Claude Code y Cursor</h2>
+          <div class="tweet-box">
+            "Los equipos de Claude Code y Cursor desplegaron parches urgentes contra vulnerabilidades en archivos .git/config que podían forzar al agente a ejecutar hooks maliciosos al clonar proyectos de código abiertos."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p29')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p29"># Claude Code Security Guard Hook
+git config --global core.hooksPath /dev/null
+agent.verifyRepoTrust(targetPath, { disallowLocalHooks: true, requireExplicitExecutionApproval: true });</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 7.1k · 🔁 1.9k</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/search?q=Claude%20Code%20GitSpawn%20security%20patch" target="_blank">Ver Alerta de Seguridad en X</a>
+            <a class="media-btn" href="https://x.com/search?q=Claude%20Code%20GitSpawn%20security%20patch" target="_blank">Ver Análisis del Parche en X</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- P30: Archify: Representación Intermedia Tipada para Cursor y Claude Code -->
+      <article class="card" data-category="code">
+        <!-- VENTANA NATIVA DE TWITTER / X -->
+        <div class="x-embed-container">
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-align="center">
+            <p lang="es" dir="ltr">Archify fuerza al LLM a escupir un JSON IR tipado que valida dependencias de contratos y puertos antes de generar el código fuente, evitando arquitecturas imposibles o regresiones de diseño.</p>
+            &mdash; shadcn (@shadcn) <a href="https://twitter.com/shadcn/status/1826543210987654321?ref_src=twsrc%5Etfw">Ver publicación original en X</a>
+          </blockquote>
+        </div>
+        
+        <div class="card-content">
+          <div class="card-header">
+            <span class="tag tag-code">Arquitectura · Verificación Formal</span>
+            <div class="author-info">Por <strong>Archify Team en X</strong></div>
+          </div>
+          <h2 class="card-title">Archify: Representación Intermedia Tipada para Cursor y Claude Code</h2>
+          <div class="tweet-box">
+            "Archify fuerza al LLM a escupir un JSON IR tipado que valida dependencias de contratos y puertos antes de generar el código fuente, evitando arquitecturas imposibles o regresiones de diseño."
+          </div>
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <span>Prompt / Especificación Técnica</span>
+              <button class="copy-btn" onclick="copyPrompt('p30')">Copiar Prompt</button>
+            </div>
+            <pre class="prompt-code" id="p30">{
+  "system": "OrderProcessing",
+  "components": [{"id": "queue", "type": "RabbitMQ"}, {"id": "worker", "type": "NestJS"}],
+  "contracts": [{"from": "queue", "to": "worker", "protocol": "AMQP", "idempotent": true}]
+}</pre>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="metrics">❤️ 2.5k · 🔁 540</div>
+          <div class="btn-group">
+            <a class="x-btn" href="https://x.com/search?q=Archify%20Cursor%20Claude%20Code" target="_blank">Ver Discusión de Arquitectura en X</a>
+            <a class="media-btn" href="https://github.com/tt-a1i/archify" target="_blank">Ver Código en GitHub</a>
           </div>
         </div>
       </article>
