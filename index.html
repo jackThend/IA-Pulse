@@ -45,7 +45,6 @@
       margin: 0 auto;
     }
 
-    /* BARRA SUPERIOR DE MASTHEAD DE REVISTA */
     .masthead-top {
       display: flex;
       justify-content: space-between;
@@ -62,7 +61,6 @@
     }
     .masthead-top span { color: var(--accent-cyan); }
 
-    /* CABECERA PRINCIPAL AI PULSE */
     .magazine-header {
       padding: 3.5rem 0 2.5rem 0;
       border-bottom: 1px solid var(--border);
@@ -108,7 +106,6 @@
       margin-top: 0.25rem;
     }
 
-    /* FILTROS POR CATEGORÍA */
     .filter-bar {
       display: flex;
       gap: 0.6rem;
@@ -133,7 +130,6 @@
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     }
 
-    /* GRID DE 2 COLUMNAS GRANDES */
     .magazine-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -144,7 +140,6 @@
       .brand-title { font-size: 3.2rem; }
     }
 
-    /* TARJETA DE ARTÍCULO DE REVISTA */
     .article-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -162,7 +157,6 @@
       background: var(--bg-card-hover);
     }
 
-    /* HERO MULTIMEDIA 16:9 CON IMAGEN REAL Y ACCESO A VIDEO */
     .hero-media {
       position: relative;
       width: 100%;
@@ -183,7 +177,7 @@
       object-fit: cover;
       display: block;
       transition: transform 0.4s ease, filter 0.3s ease;
-      filter: brightness(0.88);
+      filter: brightness(0.9);
     }
     .article-card:hover .hero-img {
       transform: scale(1.03);
@@ -238,7 +232,6 @@
       box-shadow: 0 0 35px rgba(56, 189, 248, 0.8);
     }
 
-    /* CUERPO EDITORIAL */
     .article-body {
       padding: 2rem;
       display: flex;
@@ -272,7 +265,6 @@
       margin-bottom: 1.25rem;
     }
 
-    /* COMPONENTE DE TWEET NATIVO EN MODO OSCURO */
     .x-post-box {
       background: #000000;
       border: 1px solid #2f3336;
@@ -347,7 +339,6 @@
       border-top: 1px solid #16181c;
     }
 
-    /* RESUMEN EDITORIAL EN ESPAÑOL */
     .analysis-box {
       font-size: 0.95rem;
       color: var(--text-body);
@@ -358,7 +349,6 @@
     }
     .analysis-box strong { color: #fff; }
 
-    /* BLOQUE DE PROMPT / ESPECIFICACIÓN */
     .code-section {
       margin-top: auto;
       margin-bottom: 1rem;
@@ -404,7 +394,6 @@
       overflow-y: auto;
     }
 
-    /* PIE DE TARJETA */
     .card-footer {
       border-top: 1px solid var(--border);
       padding: 1.2rem 2rem;
@@ -465,14 +454,12 @@
 </head>
 <body>
   <div class="container">
-    <!-- MASTHEAD TOP BAR -->
     <div class="masthead-top">
       <div>AI PULSE <span>· REVISTA TÉCNICA DIARIA</span></div>
       <div>CURADURÍA EN X: REDES DE @DotCSV & @midudev</div>
-      <div>EDICIÓN 08 SEPTIEMBRE 2026</div>
+      <div>EDICIÓN 09 SEPTIEMBRE 2026</div>
     </div>
 
-    <!-- MAIN BRANDING -->
     <header class="magazine-header">
       <div>
         <h1 class="brand-title">AI Pulse</h1>
@@ -481,12 +468,11 @@
         </p>
       </div>
       <div class="edition-badge">
-        <div class="date">Martes, 08 de Septiembre 2026</div>
+        <div class="date">Miércoles, 09 de Septiembre 2026 · 08:00 AM CLT</div>
         <div class="curators">30 Casos Seleccionados · Cobertura Completa</div>
       </div>
     </header>
 
-    <!-- FILTER BAR -->
     <div class="filter-bar">
       <button class="filter-btn active" onclick="filterArticles('all')">Todas las Historias (30)</button>
       <button class="filter-btn" onclick="filterArticles('gamedev')">Videojuegos con IA (8)</button>
@@ -495,14 +481,12 @@
       <button class="filter-btn" onclick="filterArticles('image')">Imagen Fotorrealista (1)</button>
     </div>
 
-    <!-- GRID -->
     <div class="magazine-grid">
-      <!-- ARTÍCULO: Retratos Analógicos en 35mm: La Caída del 'Efecto Plástico' Comercial -->
+      <!-- HISTORIA #1: Retratos Analógicos en 35mm: La Caída del 'Efecto Plástico' Comercial -->
       <article class="article-card" data-category="image">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://x.com/search?q=Flux.1%20portrait%20raw%2035mm" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg" alt="Retrato fotográfico analógico de 35mm con grano y textura de piel natural" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&q=85" alt="Retrato analógico fotorrealista con textura de piel y óptica 35mm" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">PORTADA · FOTORREALISMO</span>
               <div class="play-button">&#9658;</div>
@@ -514,7 +498,6 @@
           <span class="badge badge-red">PORTADA · FOTORREALISMO</span>
           <h2 class="article-title">Retratos Analógicos en 35mm: La Caída del 'Efecto Plástico' Comercial</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -526,7 +509,7 @@
               </div>
               <div class="x-logo">&#120143;</div>
             </div>
-            <div class="x-tweet-content">"Superando el efecto plástico de las plataformas cerradas. Este prompt para modelos de pesos abiertos aprovecha iluminación lateral suave y óptica analógica de 85mm f/1.4 para lograr poros visibles, vello facial sutil e imperfecciones naturales."</div>
+            <div class="x-tweet-content">"Superando el efecto plástico de las plataformas comerciales cerradas. Este prompt para modelos de pesos abiertos aprovecha iluminación lateral suave y óptica analógica de 85mm f/1.4 para lograr poros visibles, vello facial sutil e imperfecciones naturales."</div>
             <div class="x-tweet-stats">
               <span>❤️ 4.6K</span>
               <span>🔁 940</span>
@@ -534,18 +517,16 @@
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
-            <strong>Análisis editorial:</strong> Un avance crucial en modelos de pesos abiertos (Flux.1 Dev): el abandono del suavizado cosmético comercial. La fórmula reemplaza modificadores genéricos como 'photorealistic' por física óptica real: simulación de emulsión de grano de 35mm, dispersión de luz subsuperficial y profundidad de campo de lente f/1.4 con aberración esférica auténtica.
+            <strong>Análisis editorial:</strong> Un avance crucial en modelos abiertos como Flux.1 Dev: la eliminación del suavizado cosmético comercial. La fórmula reemplaza modificadores abstractos por física óptica real: emulsión de grano de 35mm, dispersión de luz subsuperficial y profundidad de campo analógica.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_1')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_1')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_1">RAW 35mm film photograph of a 30-year-old weathered sea captain standing in drizzle on a deck, dramatic low-angle shot, natural skin pores, realistic imperfections, kohl around eyes, authentic lighting, Sony Alpha A7 III, 85mm f/1.4 lens, natural cinematic color grading, no plastic skin, film grain --ar 16:9 --style raw</pre>
+            <pre class="code-block" id="prompt_slot_1">RAW 35mm film photograph of a 30-year-old weathered sea captain standing in drizzle on a deck, dramatic low-angle shot, natural skin pores, realistic imperfections, kohl around eyes, authentic lighting, Sony Alpha A7 III, 85mm f/1.4 lens, natural cinematic color grading, no plastic skin, film grain --ar 16:9 --style raw</pre>
           </div>
         </div>
 
@@ -557,12 +538,11 @@
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: Tidal Rush: Carreras Náuticas en WebGL con Estelas Procedurales -->
+      <!-- HISTORIA #2: Tidal Rush: Carreras Náuticas en WebGL con Estelas Procedurales -->
       <article class="article-card" data-category="gamedev">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://x.com/search?q=GPT-6%20Astra%20Tidal%20Rush%20game" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/MMQb9p-Bd5k/hqdefault.jpg" alt="Gameplay 3D de carreras náuticas con estelas de espuma y circuitos de boyas" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1200&q=85" alt="Lanchas rápidas y motos acuáticas compitiendo a gran velocidad" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">VIDEOJUEGOS · KART RACING 3D</span>
               <div class="play-button">&#9658;</div>
@@ -574,7 +554,6 @@
           <span class="badge badge-green">VIDEOJUEGOS · KART RACING 3D</span>
           <h2 class="article-title">Tidal Rush: Carreras Náuticas en WebGL con Estelas Procedurales</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -594,18 +573,16 @@
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
-            <strong>Análisis editorial:</strong> Una muestra práctica de la generación de físicas interactivas en Three.js: las motos acuáticas no solo se desplazan sobre un plano, sino que deforman la malla de agua generando estelas de partículas reactivas (wake mesh) y calculan el balanceo según la velocidad angular del giro.
+            <strong>Análisis editorial:</strong> Física interactiva de agua en Three.js: las motos acuáticas deforman la superficie líquida generando estelas de partículas reactivas (wake mesh) y calculan la amortiguación del oleaje según la velocidad angular.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_2')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_2')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_2">Build a 3D arcade watercraft racing game 'Tidal Rush' in Three.js. Generate procedural floating buoy circuit checkpoints, dynamic water wake mesh trails behind jet-skis, arcade drifting physics with momentum damping, and time-trial leaderboard UI.</pre>
+            <pre class="code-block" id="prompt_slot_2">Build a 3D arcade watercraft racing game 'Tidal Rush' in Three.js. Generate procedural floating buoy circuit checkpoints, dynamic water wake mesh trails behind jet-skis, arcade drifting physics with momentum damping, and time-trial leaderboard UI.</pre>
           </div>
         </div>
 
@@ -617,12 +594,11 @@
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: Astra Conduce la Interfaz de Unreal Engine 5 y Blender Directamente -->
+      <!-- HISTORIA #3: Astra Conduce la Interfaz de Unreal Engine 5 y Blender Directamente -->
       <article class="article-card" data-category="gamedev">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://x.com/search?q=Min%20Choi%20GPT-6%20Astra%20Blender%20Unreal" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/qICBFY0-FRc/hqdefault.jpg" alt="Demostración de IA operando Unreal Engine 5 y configurando iluminación Lumen" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=85" alt="Espacio de trabajo 3D y desarrollo de videojuegos en monitor" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">UNREAL ENGINE 5 · COMPUTER-USE</span>
               <div class="play-button">&#9658;</div>
@@ -634,7 +610,6 @@
           <span class="badge badge-green">UNREAL ENGINE 5 · COMPUTER-USE</span>
           <h2 class="article-title">Astra Conduce la Interfaz de Unreal Engine 5 y Blender Directamente</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -654,18 +629,16 @@
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
-            <strong>Análisis editorial:</strong> El salto de LLM a agente de escritorio (*computer-use*): el modelo interactúa visualmente con la suite de desarrollo profesional sin necesitar APIs propietarias, traduciendo directivas de alto nivel en acciones de ratón, shortcuts y manipulación de nodos dentro de UE5 y Blender.
+            <strong>Análisis editorial:</strong> El salto de LLM a operador de software: el modelo interactúa visualmente con la suite de desarrollo profesional sin requerir APIs propietarias, traduciendo directivas de alto nivel en manipulación de nodos dentro de UE5 y Blender.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_3')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_3')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_3">GPT-6 Astra Computer-Use Directive: 'Open Unreal Engine 5 project. Create a stormy ocean island level. Spawn Nanite cliff meshes along shoreline, attach Lumen directional moonlight with volumetric cloud shadows, and build dynamic water buoyancy physics volume.'</pre>
+            <pre class="code-block" id="prompt_slot_3">GPT-6 Astra Computer-Use Directive: 'Open Unreal Engine 5 project. Create a stormy ocean island level. Spawn Nanite cliff meshes along shoreline, attach Lumen directional moonlight with volumetric cloud shadows, and build dynamic water buoyancy physics volume.'</pre>
           </div>
         </div>
 
@@ -677,12 +650,11 @@
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: Homeworld en WebGL: Batallas Espaciales a Escala Galáctica -->
+      <!-- HISTORIA #4: Homeworld en WebGL: Batallas Espaciales a Escala Galáctica -->
       <article class="article-card" data-category="gamedev">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://x.com/search?q=mikeluan123%20Homeworld%20RTS%20Claude" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/MMQb9p-Bd5k/hqdefault.jpg" alt="Batalla espacial en 3D con rayos láser y cazas estelares en formación" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=85" alt="Espacio exterior con nebulosas, estrellas y atmósfera galáctica" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">VIDEOJUEGOS · SPACE RTS 3D</span>
               <div class="play-button">&#9658;</div>
@@ -694,7 +666,6 @@
           <span class="badge badge-green">VIDEOJUEGOS · SPACE RTS 3D</span>
           <h2 class="article-title">Homeworld en WebGL: Batallas Espaciales a Escala Galáctica</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -714,18 +685,16 @@
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
-            <strong>Análisis editorial:</strong> Un logro técnico en Three.js puro: en lugar de cargar modelos GLTF pesados, cada nave se sintetiza mediante primitivas geométricas con shaders de emisión, renderizando combates de flotas estelares a 60 FPS con minimapa táctico de radar.
+            <strong>Análisis editorial:</strong> Un hito técnico en Three.js puro: en lugar de cargar modelos GLTF pesados, cada nave se sintetiza mediante primitivas geométricas con shaders de emisión, renderizando combates estelares a 60 FPS con minimapa táctico de radar.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_4')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_4')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_4">Build a universe-scale 3D Space RTS game in single-file Three.js. Generate procedural starfield skybox, mothership carrier with blue particle engine plumes, selectable fighter squadron fleets with 3D formation movement, laser combat beam shaders, and minimap tactical radar HUD.</pre>
+            <pre class="code-block" id="prompt_slot_4">Build a universe-scale 3D Space RTS game in single-file Three.js. Generate procedural starfield skybox, mothership carrier with blue particle engine plumes, selectable fighter squadron fleets with 3D formation movement, laser combat beam shaders, and minimap tactical radar HUD.</pre>
           </div>
         </div>
 
@@ -737,12 +706,11 @@
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: Fly Pieter: Simulador de Vuelo 3D que Facturó $87K en 18 Días -->
+      <!-- HISTORIA #5: Fly Pieter: Simulador de Vuelo 3D que Facturó $87K en 18 Días -->
       <article class="article-card" data-category="gamedev">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://x.com/levelsio" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg" alt="Simulador de vuelo 3D sobre islas procedurales en navegador" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1200&q=85" alt="Avión en vuelo sobrevolando montañas y cielo despejado" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">CASO DE ÉXITO · VIBE CODING</span>
               <div class="play-button">&#9658;</div>
@@ -754,7 +722,6 @@
           <span class="badge badge-green">CASO DE ÉXITO · VIBE CODING</span>
           <h2 class="article-title">Fly Pieter: Simulador de Vuelo 3D que Facturó $87K en 18 Días</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -774,18 +741,16 @@
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
-            <strong>Análisis editorial:</strong> El ejemplo canónico de vibe coding comercial: cómo una arquitectura minimalista en Three.js con mapas de altura procedurales y ecuaciones de sustentación aerodinámica puede escalar a un negocio masivo sin backend complejo.
+            <strong>Análisis editorial:</strong> El ejemplo de referencia en vibe coding: cómo una arquitectura minimalista en Three.js con mapas de altura procedurales y ecuaciones de sustentación aerodinámica puede escalar a un negocio masivo sin backend complejo.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_5')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_5')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_5">Create a minimal 3D flight simulator in Three.js. Generate procedural low-poly island terrain with heightmaps, airplane flight physics (pitch, roll, yaw with realistic aerodynamic lift and drag falloff), runway landing collision detection, and throttle cockpit HUD.</pre>
+            <pre class="code-block" id="prompt_slot_5">Create a minimal 3D flight simulator in Three.js. Generate procedural low-poly island terrain with heightmaps, airplane flight physics (pitch, roll, yaw with realistic aerodynamic lift and drag falloff), runway landing collision detection, and throttle cockpit HUD.</pre>
           </div>
         </div>
 
@@ -797,12 +762,11 @@
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: Village Builder: Gestión de Recursos y Aldeanos en 5 Horas -->
+      <!-- HISTORIA #6: Village Builder: Gestión de Recursos y Aldeanos en 5 Horas -->
       <article class="article-card" data-category="gamedev">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://x.com/search?q=Dilum%20Sanjaya%20village%20builder%20Claude" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/qICBFY0-FRc/hqdefault.jpg" alt="Aldea isométrica en 3D con aldeanos recolectando trigo y madera" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=85" alt="Pueblo medieval con casas rústicas de madera y entorno natural" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">ESTRATEGIA · ISOMÉTRICO 3D</span>
               <div class="play-button">&#9658;</div>
@@ -814,7 +778,6 @@
           <span class="badge badge-green">ESTRATEGIA · ISOMÉTRICO 3D</span>
           <h2 class="article-title">Village Builder: Gestión de Recursos y Aldeanos en 5 Horas</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -834,18 +797,16 @@
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
             <strong>Análisis editorial:</strong> La técnica 'Improvement-List' consiste en obligar al modelo a generar primero un bucle de agentes con máquinas de estado finito (cosecha, almacenamiento, descanso) antes de programar la interfaz visual, garantizando coherencia en la simulación.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_6')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_6')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_6">Create an isometric cozy village-builder in Three.js. Implement grid-based building placement (lumber mill, farm, cottages), villager agent pathfinding with state machines (idle, harvesting, depositing), real-time resource economy ticker, and seasons cycle affecting crop yields.</pre>
+            <pre class="code-block" id="prompt_slot_6">Create an isometric cozy village-builder in Three.js. Implement grid-based building placement (lumber mill, farm, cottages), villager agent pathfinding with state machines (idle, harvesting, depositing), real-time resource economy ticker, and seasons cycle affecting crop yields.</pre>
           </div>
         </div>
 
@@ -857,12 +818,11 @@
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: 500 Agentes Zombi a 60 FPS con Evasión RVO2 y Active Ragdoll -->
+      <!-- HISTORIA #7: 500 Agentes Zombi a 60 FPS con Evasión RVO2 y Active Ragdoll -->
       <article class="article-card" data-category="gamedev">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://x.com/search?q=TRA4669%20WebGPU%20zombie%20RVO2" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/MMQb9p-Bd5k/hqdefault.jpg" alt="Simulación masiva de multitud con físicas activas y luces dinámicas" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=1200&q=85" alt="Atmósfera oscura y cinemática de temática apocalíptica" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">WEBGPU · MULTITUDES & RAGDOLL</span>
               <div class="play-button">&#9658;</div>
@@ -874,7 +834,6 @@
           <span class="badge badge-green">WEBGPU · MULTITUDES & RAGDOLL</span>
           <h2 class="article-title">500 Agentes Zombi a 60 FPS con Evasión RVO2 y Active Ragdoll</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -894,18 +853,16 @@
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
             <strong>Análisis editorial:</strong> Aprovechamiento de la API WebGPU para trasladar el cálculo de colisiones y cinemática inversa de cientos de entidades del hilo principal de CPU a los compute shaders de la GPU, manteniendo 60 FPS estables.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_7')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_7')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_7">Build a WebGPU Three.js zombie horde survival prototype. Implement RVO2 reciprocal collision avoidance for crowd simulation, A* navmesh pathfinding, active ragdoll blend upon projectile hit, and muzzle flash dynamic point lights.</pre>
+            <pre class="code-block" id="prompt_slot_7">Build a WebGPU Three.js zombie horde survival prototype. Implement RVO2 reciprocal collision avoidance for crowd simulation, A* navmesh pathfinding, active ragdoll blend upon projectile hit, and muzzle flash dynamic point lights.</pre>
           </div>
         </div>
 
@@ -917,12 +874,11 @@
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: Mundo Submarino con Físicas de Flotación y Audio en un Turno -->
+      <!-- HISTORIA #8: Mundo Submarino con Físicas de Flotación y Audio en un Turno -->
       <article class="article-card" data-category="gamedev">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://www.youtube.com/watch?v=92IbGKMeLQE" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg" alt="Submarino 3D navegando en océano profundo con rayos de luz y partículas" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=85" alt="Fondo marino con rayos de luz penetrando las aguas profundas" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">PROTOTIPO 3D · 1-PROMPT GAME</span>
               <div class="play-button">&#9658;</div>
@@ -934,7 +890,6 @@
           <span class="badge badge-green">PROTOTIPO 3D · 1-PROMPT GAME</span>
           <h2 class="article-title">Mundo Submarino con Físicas de Flotación y Audio en un Turno</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -954,18 +909,16 @@
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
-            <strong>Análisis editorial:</strong> Demostración icónica de Claude Opus: la capacidad de enlazar generación de mallas WebGL, shaders de agua cáustica y síntesis de osciladores sonoros en la WebAudio API dentro de un único archivo autónomo.
+            <strong>Análisis editorial:</strong> Demostración de Claude Opus: capacidad de enlazar generación de mallas WebGL, shaders de agua cáustica y síntesis de osciladores sonoros en la WebAudio API dentro de un único archivo autónomo.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_8')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_8')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_8">Create a complete 3D submarine exploration game in single-file WebGL. Generate all procedural ocean floor meshes, submarine vehicle with buoyancy physics, volumetric lighting through water surface, particle bubble trails, and an ambient synth aquatic soundtrack using WebAudio API.</pre>
+            <pre class="code-block" id="prompt_slot_8">Create a complete 3D submarine exploration game in single-file WebGL. Generate all procedural ocean floor meshes, submarine vehicle with buoyancy physics, volumetric lighting through water surface, particle bubble trails, and an ambient synth aquatic soundtrack using WebAudio API.</pre>
           </div>
         </div>
 
@@ -977,12 +930,11 @@
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: Oasis 2.0: Generación de Videojuegos a 20 FPS sin Código Tradicional -->
+      <!-- HISTORIA #9: Oasis 2.0: Generación de Videojuegos a 20 FPS sin Código Tradicional -->
       <article class="article-card" data-category="gamedev">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://www.youtube.com/watch?v=MMQb9p-Bd5k" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/MMQb9p-Bd5k/hqdefault.jpg" alt="Gameplay neuronal interactivo de mundo vóxel generado por difusión" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1627856013091-fed6e4e30025?auto=format&fit=crop&w=1200&q=85" alt="Bloques vóxel cúbicos en 3D estilo Minecraft" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">MOTOR NEURONAL · DIFUSIÓN</span>
               <div class="play-button">&#9658;</div>
@@ -994,7 +946,6 @@
           <span class="badge badge-green">MOTOR NEURONAL · DIFUSIÓN</span>
           <h2 class="article-title">Oasis 2.0: Generación de Videojuegos a 20 FPS sin Código Tradicional</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -1014,18 +965,16 @@
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
             <strong>Análisis editorial:</strong> El modelo transformer de 500M de parámetros condiciona cada fotograma siguiente al buffer previo y la entrada física del usuario, resolviendo la persistencia de mapa y colisiones a nivel de pesos neuronales a 20 FPS.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_9')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_9')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_9">open-oasis transformer model: real-time diffusion frame prediction conditioned on keyboard WASD input + previous frame buffer, running local 20 FPS neural video generation with persistent chunk memory.</pre>
+            <pre class="code-block" id="prompt_slot_9">open-oasis transformer model: real-time diffusion frame prediction conditioned on keyboard WASD input + previous frame buffer, running local 20 FPS neural video generation with persistent chunk memory.</pre>
           </div>
         </div>
 
@@ -1037,12 +986,11 @@
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: Comercial de Lujo Hermès Dirigido de Extremo a Extremo por Agente -->
+      <!-- HISTORIA #10: Comercial de Lujo Hermès Dirigido de Extremo a Extremo por Agente -->
       <article class="article-card" data-category="cinematics">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://x.com/deedydas/status/2093588294340882649" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/qICBFY0-FRc/hqdefault.jpg" alt="Plano cinemático de marroquinería de lujo iluminada con luz dorada parisina" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1200&q=85" alt="Marroquinería de lujo y acabados artesanales en piel" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">CINEMÁTICAS · CREATIVE DIRECTOR</span>
               <div class="play-button">&#9658;</div>
@@ -1054,7 +1002,6 @@
           <span class="badge badge-purple">CINEMÁTICAS · CREATIVE DIRECTOR</span>
           <h2 class="article-title">Comercial de Lujo Hermès Dirigido de Extremo a Extremo por Agente</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -1074,18 +1021,16 @@
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
             <strong>Análisis editorial:</strong> Un pipeline de producción publicitaria automatizado: el agente evalúa la coherencia cromática y el ritmo del montaje cinematográfico entre tomas, orquestando APIs generativas de video, audio y renderizado local.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_10')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_10')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_10">Director Prompt: Write an 8-shot storyboard for a 30s luxury leather goods commercial. For each shot, output visual prompt for Veo 3 (anamorphic 35mm, macro texture of stitching, Parisian golden hour lighting), generate ElevenLabs voiceover audio, and compile via ffmpeg script with synchronized cuts.</pre>
+            <pre class="code-block" id="prompt_slot_10">Director Prompt: Write an 8-shot storyboard for a 30s luxury leather goods commercial. For each shot, output visual prompt for Veo 3 (anamorphic 35mm, macro texture of stitching, Parisian golden hour lighting), generate ElevenLabs voiceover audio, and compile via ffmpeg script with synchronized cuts.</pre>
           </div>
         </div>
 
@@ -1097,12 +1042,11 @@
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: Character Anchoring: Hasta 6 Tomas Continuas con Identidad Fija -->
+      <!-- HISTORIA #11: Character Anchoring: Hasta 6 Tomas Continuas con Identidad Fija -->
       <article class="article-card" data-category="cinematics">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://www.youtube.com/watch?v=qICBFY0-FRc" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/qICBFY0-FRc/hqdefault.jpg" alt="Capitán en timón de barco bajo tormenta con iluminación de relámpago" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=85" alt="Barco navegando en altamar bajo cielo de tormenta" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">RODAJE CONTINUO · MULTI-SHOT</span>
               <div class="play-button">&#9658;</div>
@@ -1114,7 +1058,6 @@
           <span class="badge badge-purple">RODAJE CONTINUO · MULTI-SHOT</span>
           <h2 class="article-title">Character Anchoring: Hasta 6 Tomas Continuas con Identidad Fija</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -1134,18 +1077,16 @@
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
-            <strong>Análisis editorial:</strong> El truco para evitar que los actores generativos muten de ropa o rostro: describir los elementos fijos de atrezzo como anclas absolutas y variar únicamente la posición de la cámara y la acción visible.
+            <strong>Análisis editorial:</strong> El método para evitar que los actores generativos muten de ropa o rostro: describir los elementos fijos de atrezzo como anclas absolutas y variar únicamente la posición de la cámara y la acción visible.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_11')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_11')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_11">Shot 1: Wide establishing shot of pirate captain at steering wheel in gale storm, lightning flash. Shot 2: Extreme close-up on weathered eye looking at compass needle. Anamorphic lens distortion, 35mm film grain, synchronized thunder clap audio.</pre>
+            <pre class="code-block" id="prompt_slot_11">Shot 1: Wide establishing shot of pirate captain at steering wheel in gale storm, lightning flash. Shot 2: Extreme close-up on weathered eye looking at compass needle. Anamorphic lens distortion, 35mm film grain, synchronized thunder clap audio.</pre>
           </div>
         </div>
 
@@ -1157,12 +1098,11 @@
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: Física de Lentes Cooke Anamórficos para Sora 2 y Veo 3 -->
+      <!-- HISTORIA #12: Física de Lentes Cooke Anamórficos para Sora 2 y Veo 3 -->
       <article class="article-card" data-category="cinematics">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://x.com/search?q=Sora%20Veo%20camera%20prompt%20technocrane" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg" alt="Galeón navegando aguas bioluminiscentes con bokeh ovalado anamórfico" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=85" alt="Cámara de cine profesional y producción cinematográfica" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">DIRECCIÓN ÓPTICA · CINE</span>
               <div class="play-button">&#9658;</div>
@@ -1174,7 +1114,6 @@
           <span class="badge badge-purple">DIRECCIÓN ÓPTICA · CINE</span>
           <h2 class="article-title">Física de Lentes Cooke Anamórficos para Sora 2 y Veo 3</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -1194,18 +1133,16 @@
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
-            <strong>Análisis editorial:</strong> Los modelos de video responden a la terminología mecánica del cine: la orden de un 'Technocrane down' y '180-degree shutter' elimina el efecto de cámara flotante artificial característico de las generaciones novatas.
+            <strong>Análisis editorial:</strong> Los modelos de video responden a la terminología mecánica del cine: la orden de un 'Technocrane down' y '180-degree shutter' elimina el efecto de cámara flotante artificial.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_12')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_12')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_12">Technocrane slow high-angle crane down to ground level tracking an old wooden galleon navigating shallow bioluminescent waters. Shallow depth of field, Cooke anamorphic lens oval bokeh, natural moonlight illumination, organic camera drift, authentic shutter angle 180 degrees.</pre>
+            <pre class="code-block" id="prompt_slot_12">Technocrane slow high-angle crane down to ground level tracking an old wooden galleon navigating shallow bioluminescent waters. Shallow depth of field, Cooke anamorphic lens oval bokeh, natural moonlight illumination, organic camera drift, authentic shutter angle 180 degrees.</pre>
           </div>
         </div>
 
@@ -1217,12 +1154,11 @@
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: Dinámica de Fluidos e Inercia en Planos de Dron FPV Cyberpunk -->
+      <!-- HISTORIA #13: Dinámica de Fluidos e Inercia en Planos de Dron FPV Cyberpunk -->
       <article class="article-card" data-category="cinematics">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://x.com/search?q=FPV%20drone%20video%20AI%20prompt%20cyberpunk" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/MMQb9p-Bd5k/hqdefault.jpg" alt="Vuelo de dron FPV a través de callejón cyberpunk con luces de neón" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1200&q=85" alt="Ciudad nocturna cyberpunk con luces de neón brillantes" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">ACELERACIÓN ANGULAR · FPV</span>
               <div class="play-button">&#9658;</div>
@@ -1234,7 +1170,6 @@
           <span class="badge badge-purple">ACELERACIÓN ANGULAR · FPV</span>
           <h2 class="article-title">Dinámica de Fluidos e Inercia en Planos de Dron FPV Cyberpunk</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -1254,18 +1189,16 @@
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
             <strong>Análisis editorial:</strong> Incorporar variables de física real en el prompt de video (inercia, sacudida por resistencia de aire) evita que la red neuronal genere giros rígidos o trayectorias de cámara sin masa.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_13')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_13')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_13">FPV racing drone camera high-speed dive down a narrow cyberpunk neon-lit alleyway, tight banking maneuvers between holographic signs, wet asphalt ground reflection, cinematic motion blur, natural camera shake upon sharp turn.</pre>
+            <pre class="code-block" id="prompt_slot_13">FPV racing drone camera high-speed dive down a narrow cyberpunk neon-lit alleyway, tight banking maneuvers between holographic signs, wet asphalt ground reflection, cinematic motion blur, natural camera shake upon sharp turn.</pre>
           </div>
         </div>
 
@@ -1277,12 +1210,11 @@
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: El Prompt 'Anti-Mannered Prose' que Elimina el Tono Robótico -->
+      <!-- HISTORIA #14: El Prompt 'Anti-Mannered Prose' que Elimina el Tono Robótico -->
       <article class="article-card" data-category="code">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://x.com/search?q=Anthropic%20mannered%20prose%20prompt%20elvis" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/qICBFY0-FRc/hqdefault.jpg" alt="Esquema de prompting minimalista para eliminar clichés en modelos LLM" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=85" alt="Máquina de escribir clásica y redacción limpia sobre papel" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">PROMPTING · ANTHROPIC INSIGHT</span>
               <div class="play-button">&#9658;</div>
@@ -1294,7 +1226,6 @@
           <span class="badge badge-blue">PROMPTING · ANTHROPIC INSIGHT</span>
           <h2 class="article-title">El Prompt 'Anti-Mannered Prose' que Elimina el Tono Robótico</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -1314,18 +1245,16 @@
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
-            <strong>Análisis editorial:</strong> En lugar de pagar el 'impuesto de andamiaje' con cientos de líneas de reglas negativas, una regla estilística compacta de 4 líneas enfoca la atención del modelo en afirmar hechos comprobables sin palabrería.
+            <strong>Análisis editorial:</strong> En lugar de sobrecargar al modelo con cientos de reglas negativas, una regla estilística compacta de 4 líneas enfoca la atención en afirmar hechos comprobables sin palabrería.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_14')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_14')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_14">Write in natural, direct prose. Strictly avoid conversational filler, grandiose conclusions, artificial balance ('on the other hand...'), rhetorical questions, and formulaic transitional phrases. Say what happened plainly with grounded evidence.</pre>
+            <pre class="code-block" id="prompt_slot_14">Write in natural, direct prose. Strictly avoid conversational filler, grandiose conclusions, artificial balance ('on the other hand...'), rhetorical questions, and formulaic transitional phrases. Say what happened plainly with grounded evidence.</pre>
           </div>
         </div>
 
@@ -1337,12 +1266,11 @@
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: El Stack de Protocolos Agentic: MCP, A2A, AG-UI y UHP -->
+      <!-- HISTORIA #15: El Stack de Protocolos Agentic: MCP, A2A, AG-UI y UHP -->
       <article class="article-card" data-category="code">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://x.com/search?q=AI%20agent%20protocols%20MCP%20A2A%20AG-UI" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg" alt="Diagrama de arquitectura del stack de protocolos para agentes de IA" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=85" alt="Servidores de centro de datos y conexiones de red en rack" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">ARQUITECTURA · PROTOCOLOS 2026</span>
               <div class="play-button">&#9658;</div>
@@ -1354,7 +1282,6 @@
           <span class="badge badge-blue">ARQUITECTURA · PROTOCOLOS 2026</span>
           <h2 class="article-title">El Stack de Protocolos Agentic: MCP, A2A, AG-UI y UHP</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -1374,18 +1301,16 @@
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
             <strong>Análisis editorial:</strong> El fin de los frameworks monolíticos aislados: el consorcio abierto adopta capas modulares donde cualquier cliente de terminal puede conectarse con herramientas remotas o locales mediante contratos estandarizados.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_15')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_15')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_15"># agent-topology.yaml
+            <pre class="code-block" id="prompt_slot_15"># agent-topology.yaml
 runtime:
   tool_protocol: MCP/1.2 (stdio+sse)
   agent_coordination: A2A-mesh
@@ -1402,12 +1327,11 @@ runtime:
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: Alerta de Seguridad en MCP: 91.8% de Servidores sin Autenticación -->
+      <!-- HISTORIA #16: Alerta de Seguridad en MCP: 91.8% de Servidores sin Autenticación -->
       <article class="article-card" data-category="code">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://x.com/search?q=MCP%20servers%20without%20auth%20security" target="_blank" title="Ver Demostración / Video">
-            <img src="https://mintcdn.com/mcp/bEUxYpZqie0DsluH/images/mcp-simple-diagram.png?fit=max&auto=format&n=bEUxYpZqie0DsluH&q=85&s=35268aa0ad50b8c385913810e7604550" alt="Esquema oficial de arquitectura del Model Context Protocol" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=85" alt="Candado y seguridad de cifrado digital" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">SEGURIDAD · MODEL CONTEXT PROTOCOL</span>
               <div class="play-button">&#9658;</div>
@@ -1419,7 +1343,6 @@ runtime:
           <span class="badge badge-amber">SEGURIDAD · MODEL CONTEXT PROTOCOL</span>
           <h2 class="article-title">Alerta de Seguridad en MCP: 91.8% de Servidores sin Autenticación</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -1439,18 +1362,16 @@ runtime:
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
             <strong>Análisis editorial:</strong> Cualquier proceso local podía interrogar servidores MCP en localhost sin credenciales. La comunidad adopta un handshake de sesión con tokens efímeros (TTL 3600s) que solo autoriza al proceso padre de la terminal.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_16')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_16')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_16"># mcp-server.config.json
+            <pre class="code-block" id="prompt_slot_16"># mcp-server.config.json
 {
   "transport": "stdio",
   "security": {
@@ -1471,12 +1392,11 @@ runtime:
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: Scaffolding Tax: Por Qué Borrar el 80% del System Prompt Aumenta la Calidad -->
+      <!-- HISTORIA #17: Scaffolding Tax: Por Qué Borrar el 80% del System Prompt Aumenta la Calidad -->
       <article class="article-card" data-category="code">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://x.com/search?q=Claude%20Code%20scaffolding%20tax%20system%20prompt" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/qICBFY0-FRc/hqdefault.jpg" alt="Flujo de trabajo EPIC: Explorar, Planificar, Implementar y Confirmar con tests" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=85" alt="Pantalla de código fuente en editor moderno" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">PROMPTING · CLAUDE CODE</span>
               <div class="play-button">&#9658;</div>
@@ -1488,7 +1408,6 @@ runtime:
           <span class="badge badge-blue">PROMPTING · CLAUDE CODE</span>
           <h2 class="article-title">Scaffolding Tax: Por Qué Borrar el 80% del System Prompt Aumenta la Calidad</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -1508,18 +1427,16 @@ runtime:
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
             <strong>Análisis editorial:</strong> Los system prompts actúan a menudo como registros de errores de modelos pasados. Eliminar el andamiaje redundante permite al agente ejecutar el ciclo EPIC (Explore, Plan, Implement, Commit) con máxima flexibilidad.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_17')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_17')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_17"># Lean Agent System Prompt
+            <pre class="code-block" id="prompt_slot_17"># Lean Agent System Prompt
 You are an autonomous coding agent. Follow the EPIC workflow: Explore codebase, Plan changes, Implement minimal diff, Commit with tests. Never write workarounds for issues the test suite can verify natively.</pre>
           </div>
         </div>
@@ -1532,12 +1449,11 @@ You are an autonomous coding agent. Follow the EPIC workflow: Explore codebase, 
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: Guardrails contra 'Task Drift' en Agentes de Navegación Web -->
+      <!-- HISTORIA #18: Guardrails contra 'Task Drift' en Agentes de Navegación Web -->
       <article class="article-card" data-category="code">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://x.com/search?q=AI%20agent%20browser%20autonomy%20guardrails" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/MMQb9p-Bd5k/hqdefault.jpg" alt="Diagrama de seguridad para contención de navegación web en agentes" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=85" alt="Matriz de ciberseguridad con código binario y candado digital" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">SEGURIDAD · AGENTES BROWSER</span>
               <div class="play-button">&#9658;</div>
@@ -1549,7 +1465,6 @@ You are an autonomous coding agent. Follow the EPIC workflow: Explore codebase, 
           <span class="badge badge-amber">SEGURIDAD · AGENTES BROWSER</span>
           <h2 class="article-title">Guardrails contra 'Task Drift' en Agentes de Navegación Web</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -1569,18 +1484,16 @@ You are an autonomous coding agent. Follow the EPIC workflow: Explore codebase, 
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
-            <strong>Análisis editorial:</strong> Al otorgar a un agente la capacidad de hacer clic en enlaces externos, el riesgo de alucinación navegatoria o desvío de objetivo aumenta exponencialmente. Las políticas YAML de contención aíslan la ejecución.
+            <strong>Análisis editorial:</strong> Al otorgar a un agente la capacidad de interactuar con la web, el riesgo de alucinación navegatoria o desvío de objetivo aumenta exponencialmente. Las políticas YAML de contención aíslan la ejecución.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_18')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_18')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_18"># config/browser-guardrails.yaml
+            <pre class="code-block" id="prompt_slot_18"># config/browser-guardrails.yaml
 allowed_domains:
   - 'localhost'
   - 'github.com'
@@ -1600,12 +1513,11 @@ navigation_policy:
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: Claude Skills vs Servidores MCP: Paquetes Locales vs Red -->
+      <!-- HISTORIA #19: Claude Skills vs Servidores MCP: Paquetes Locales vs Red -->
       <article class="article-card" data-category="code">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://simonwillison.net/2025/Oct/16/claude-skills/" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg" alt="Estructura de directorios de una Skill local para agentes de IA" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85" alt="Herramientas de desarrollo de software y flujos de trabajo" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">ESTÁNDARES · SIMON WILLISON</span>
               <div class="play-button">&#9658;</div>
@@ -1617,7 +1529,6 @@ navigation_policy:
           <span class="badge badge-blue">ESTÁNDARES · SIMON WILLISON</span>
           <h2 class="article-title">Claude Skills vs Servidores MCP: Paquetes Locales vs Red</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -1637,18 +1548,16 @@ navigation_policy:
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
             <strong>Análisis editorial:</strong> Una Skill es un directorio autocontenido con instrucciones en Markdown y scripts ejecutables que el agente carga en memoria únicamente cuando el usuario menciona la tarea, optimizando el contexto.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_19')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_19')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_19"># skills/pdf-table-extractor/SKILL.md
+            <pre class="code-block" id="prompt_slot_19"># skills/pdf-table-extractor/SKILL.md
 ---
 name: pdf-table-extractor
 description: Extracts tabular data from PDFs into clean CSV using pdfplumber
@@ -1667,12 +1576,11 @@ description: Extracts tabular data from PDFs into clean CSV using pdfplumber
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: Chopin: Entorno Multijugador para Humanos y Enjambres de Agentes -->
+      <!-- HISTORIA #20: Chopin: Entorno Multijugador para Humanos y Enjambres de Agentes -->
       <article class="article-card" data-category="code">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://x.com/search?q=GitHub%20Next%20Chopin%20multiplayer%20agents" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/MMQb9p-Bd5k/hqdefault.jpg" alt="Interfaz multijugador de Chopin con agentes dividiendo tareas en paralelo" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=85" alt="Equipo técnico colaborando frente a pantallas y diagramas" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">COLABORACIÓN · GITHUB NEXT</span>
               <div class="play-button">&#9658;</div>
@@ -1684,7 +1592,6 @@ description: Extracts tabular data from PDFs into clean CSV using pdfplumber
           <span class="badge badge-blue">COLABORACIÓN · GITHUB NEXT</span>
           <h2 class="article-title">Chopin: Entorno Multijugador para Humanos y Enjambres de Agentes</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -1704,18 +1611,16 @@ description: Extracts tabular data from PDFs into clean CSV using pdfplumber
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
             <strong>Análisis editorial:</strong> Un cambio radical respecto al chat 1:1 tradicional: los desarrolladores asignan microtareas a sub-agentes en un tablero visual interactivo, con puntos de control humano obligatorios antes de fusionar código a main.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_20')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_20')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_20">GitHub Chopin Plan Manifest:
+            <pre class="code-block" id="prompt_slot_20">GitHub Chopin Plan Manifest:
 - Feature: Async Payments Pipeline
 - Agent 1 (Backend Worker): scaffold NestJS queues + idempotency guard
 - Agent 2 (Test Orchestrator): generate mock Stripe webhooks + contract tests
@@ -1731,12 +1636,11 @@ description: Extracts tabular data from PDFs into clean CSV using pdfplumber
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: Claude Agent SDK: Automatización de Terminal como Paquete Nativo -->
+      <!-- HISTORIA #21: Claude Agent SDK: Automatización de Terminal como Paquete Nativo -->
       <article class="article-card" data-category="code">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://code.claude.com/docs/en/agent-sdk/overview" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/qICBFY0-FRc/hqdefault.jpg" alt="Código de inicialización del Claude Agent SDK en TypeScript" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=1200&q=85" alt="Líneas de código estructurado en lenguaje moderno" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">LIBRERÍAS · ANTHROPIC</span>
               <div class="play-button">&#9658;</div>
@@ -1748,7 +1652,6 @@ description: Extracts tabular data from PDFs into clean CSV using pdfplumber
           <span class="badge badge-blue">LIBRERÍAS · ANTHROPIC</span>
           <h2 class="article-title">Claude Agent SDK: Automatización de Terminal como Paquete Nativo</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -1768,18 +1671,16 @@ description: Extracts tabular data from PDFs into clean CSV using pdfplumber
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
             <strong>Análisis editorial:</strong> Permite integrar la capacidad de lectura de ficheros, ejecución de comandos bash y llamadas a herramientas en pipelines de integración continua (CI/CD) corporativos de manera programática.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_21')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_21')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_21">import { AgentRunner } from '@anthropic/agent-sdk';
+            <pre class="code-block" id="prompt_slot_21">import { AgentRunner } from '@anthropic/agent-sdk';
 const agent = new AgentRunner({
   tools: ['filesystem', 'terminal', 'git'],
   systemPrompt: 'Autonomous refactor agent for monorepo packages'
@@ -1796,12 +1697,11 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: Servidor MCP de X: Búsqueda y Análisis de Tweets en la Terminal -->
+      <!-- HISTORIA #22: Servidor MCP de X: Búsqueda y Análisis de Tweets en la Terminal -->
       <article class="article-card" data-category="code">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://github.com/DataWhisker/x-mcp-server" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg" alt="Terminal ejecutando búsqueda de tweets virales a través del servidor MCP" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1611605698335-8b1569810432?auto=format&fit=crop&w=1200&q=85" alt="Iconos y aplicaciones sociales digitales en smartphone" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">COMUNIDAD · MIDUDEV & MCP</span>
               <div class="play-button">&#9658;</div>
@@ -1813,7 +1713,6 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
           <span class="badge badge-cyan">COMUNIDAD · MIDUDEV & MCP</span>
           <h2 class="article-title">Servidor MCP de X: Búsqueda y Análisis de Tweets en la Terminal</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -1833,18 +1732,16 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
             <strong>Análisis editorial:</strong> midudev destaca la utilidad para desarrolladores: conectar la fuente primaria de novedades tecnológicas directamente al contexto del editor de código sin tener que abrir el navegador.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_22')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_22')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_22">{
+            <pre class="code-block" id="prompt_slot_22">{
   "server": "x-twitter-mcp",
   "command": "search_recent_tweets",
   "params": {
@@ -1863,12 +1760,11 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: Copiloto Táctico por Voz para Total War mediante Visión MCP -->
+      <!-- HISTORIA #23: Copiloto Táctico por Voz para Total War mediante Visión MCP -->
       <article class="article-card" data-category="code">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://x.com/daniellefong" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/MMQb9p-Bd5k/hqdefault.jpg" alt="Campo de batalla de Total War con análisis táctico en tiempo real" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=85" alt="Batalla histórica y estrategia militar táctica" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">VIDEOJUEGOS · TÁCTICA EN VIVO</span>
               <div class="play-button">&#9658;</div>
@@ -1880,7 +1776,6 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
           <span class="badge badge-green">VIDEOJUEGOS · TÁCTICA EN VIVO</span>
           <h2 class="article-title">Copiloto Táctico por Voz para Total War mediante Visión MCP</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -1900,18 +1795,16 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
             <strong>Análisis editorial:</strong> El script toma capturas cada 3 segundos en segundo plano, envía los fotogramas a la API de visión y transmite la respuesta a un sintetizador de voz (TTS) para dar feedback auditivo en vivo.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_23')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_23')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_23">MCP Background Loop: poll display buffer every 3s, send compressed frames to Claude vision API with military tactical prompt, stream analysis to TTS speech synthesizer for low-latency verbal battlefield advice.</pre>
+            <pre class="code-block" id="prompt_slot_23">MCP Background Loop: poll display buffer every 3s, send compressed frames to Claude vision API with military tactical prompt, stream analysis to TTS speech synthesizer for low-latency verbal battlefield advice.</pre>
           </div>
         </div>
 
@@ -1923,12 +1816,11 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: Orquestación Multi-Agente: Pull Requests y Tests 100% Autónomos -->
+      <!-- HISTORIA #24: Orquestación Multi-Agente: Pull Requests y Tests 100% Autónomos -->
       <article class="article-card" data-category="code">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://x.com/alexalbert__/status/1861079762506252723" target="_blank" title="Ver Demostración / Video">
-            <img src="https://mintcdn.com/mcp/bEUxYpZqie0DsluH/images/mcp-simple-diagram.png?fit=max&auto=format&n=bEUxYpZqie0DsluH&q=85&s=35268aa0ad50b8c385913810e7604550" alt="Esquema de integración entre servidor local MCP y GitHub API" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://mintcdn.com/mcp/bEUxYpZqie0DsluH/images/mcp-simple-diagram.png?fit=max&auto=format&n=bEUxYpZqie0DsluH&q=85&s=35268aa0ad50b8c385913810e7604550" alt="Esquema de integración entre servidor local MCP y GitHub API" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">DEVREL · ANTHROPIC</span>
               <div class="play-button">&#9658;</div>
@@ -1940,7 +1832,6 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
           <span class="badge badge-blue">DEVREL · ANTHROPIC</span>
           <h2 class="article-title">Orquestación Multi-Agente: Pull Requests y Tests 100% Autónomos</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -1960,18 +1851,16 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
             <strong>Análisis editorial:</strong> El verdadero poder de las herramientas estandarizadas: el modelo combina operaciones de bajo nivel en el disco duro con llamadas a APIs remotas de GitHub de manera fluida y sin fricción.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_24')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_24')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_24">{
+            <pre class="code-block" id="prompt_slot_24">{
   "server": "github-mcp",
   "command": "create_pull_request",
   "params": {
@@ -1991,12 +1880,11 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: Micro-Apps Descartables: Software Efímero Generado con un Prompt -->
+      <!-- HISTORIA #25: Micro-Apps Descartables: Software Efímero Generado con un Prompt -->
       <article class="article-card" data-category="code">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://x.com/karpathy" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/qICBFY0-FRc/hqdefault.jpg" alt="Concepto visual de software efímero generado bajo demanda por IA" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=85" alt="Microchip y circuitos de procesamiento de datos" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">PARADIGMAS · SOFTWARE 3.0</span>
               <div class="play-button">&#9658;</div>
@@ -2008,7 +1896,6 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
           <span class="badge badge-blue">PARADIGMAS · SOFTWARE 3.0</span>
           <h2 class="article-title">Micro-Apps Descartables: Software Efímero Generado con un Prompt</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -2028,18 +1915,16 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
             <strong>Análisis editorial:</strong> Karpathy describe la transición del software empaquetado y vendido en tiendas a interfaces efímeras diseñadas exclusivamente para resolver una única tarea presente.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_25')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_25')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_25">Prompt-to-Software paradigm: 'Software 3.0 where disposable, highly specialized GUI tools, interactive dashboards, and interpreters are synthesized on the fly rather than downloaded as static apps.'</pre>
+            <pre class="code-block" id="prompt_slot_25">Prompt-to-Software paradigm: 'Software 3.0 where disposable, highly specialized GUI tools, interactive dashboards, and interpreters are synthesized on the fly rather than downloaded as static apps.'</pre>
           </div>
         </div>
 
@@ -2051,12 +1936,11 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: El Salto de la Inferencia Autónoma: Árboles de Pensamiento con Ejecución -->
+      <!-- HISTORIA #26: El Salto de la Inferencia Autónoma: Árboles de Pensamiento con Ejecución -->
       <article class="article-card" data-category="code">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://x.com/DotCSV" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg" alt="Esquema explicativo de árboles de pensamiento y verificación de código" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=85" alt="Red neuronal artificial y visualización de conexiones de sinapsis" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">DIVULGACIÓN · DOTCSV ANÁLISIS</span>
               <div class="play-button">&#9658;</div>
@@ -2068,7 +1952,6 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
           <span class="badge badge-cyan">DIVULGACIÓN · DOTCSV ANÁLISIS</span>
           <h2 class="article-title">El Salto de la Inferencia Autónoma: Árboles de Pensamiento con Ejecución</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -2088,18 +1971,16 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
-            <strong>Análisis editorial:</strong> Una síntesis brillante sobre el avance de la inferencia durante el tiempo de ejecución (*test-time compute*): la IA deja de ser un generador estático para convertirse en un resolvedor interactivo de problemas.
+            <strong>Análisis editorial:</strong> Una síntesis sobre el avance de la inferencia durante el tiempo de ejecución (*test-time compute*): la IA deja de ser un generador estático para convertirse en un resolvedor interactivo de problemas.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_26')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_26')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_26">DotCSV Analysis Directive: 'Evaluate multi-step reasoning models with continuous execution loops. Contrast execution traces between traditional prompt chaining and autonomous agentic tree-of-thought search.'</pre>
+            <pre class="code-block" id="prompt_slot_26">DotCSV Analysis Directive: 'Evaluate multi-step reasoning models with continuous execution loops. Contrast execution traces between traditional prompt chaining and autonomous agentic tree-of-thought search.'</pre>
           </div>
         </div>
 
@@ -2111,12 +1992,11 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: Cursor vs Claude Code: Desarrollo de Microservicios en Vivo -->
+      <!-- HISTORIA #27: Cursor vs Claude Code: Desarrollo de Microservicios en Vivo -->
       <article class="article-card" data-category="code">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://x.com/midudev" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/MMQb9p-Bd5k/hqdefault.jpg" alt="Demostración de desarrollo web moderno con agentes de terminal en directo" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1200&q=85" alt="Programador trabajando en código frontend en ordenador portátil" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">DESARROLLO WEB · MIDUDEV DIRECTO</span>
               <div class="play-button">&#9658;</div>
@@ -2128,7 +2008,6 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
           <span class="badge badge-cyan">DESARROLLO WEB · MIDUDEV DIRECTO</span>
           <h2 class="article-title">Cursor vs Claude Code: Desarrollo de Microservicios en Vivo</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -2148,18 +2027,16 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
             <strong>Análisis editorial:</strong> Comparativa práctica en Next.js 15: cómo estructurar las peticiones para que el asistente configure rutas protegidas, migraciones de base de datos y tests de Playwright de forma consistente.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_27')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_27')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_27">midudev Coding Workflow: 'Initialize modern Next.js 15 app with Tailwind v4. Integrate auth middleware, scaffold responsive dashboard cards, and write automated Playwright end-to-end tests in one autonomous pass.'</pre>
+            <pre class="code-block" id="prompt_slot_27">midudev Coding Workflow: 'Initialize modern Next.js 15 app with Tailwind v4. Integrate auth middleware, scaffold responsive dashboard cards, and write automated Playwright end-to-end tests in one autonomous pass.'</pre>
           </div>
         </div>
 
@@ -2171,12 +2048,11 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: La Regla de Oro en Godot 4: Un Prompt, Una Mecánica Atómica -->
+      <!-- HISTORIA #28: La Regla de Oro en Godot 4: Un Prompt, Una Mecánica Atómica -->
       <article class="article-card" data-category="gamedev">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://www.summerengine.com/blog/how-to-make-a-game-with-ai-prompts" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/qICBFY0-FRc/hqdefault.jpg" alt="Editor de Godot 4 mostrando el árbol de nodos de una mecánica de salto 2D" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1551103782-8ab07afd45c1?auto=format&fit=crop&w=1200&q=85" alt="Personaje de videojuego 2D y diseño de niveles" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">VIDEOJUEGOS · GODOT 4 COMUNIDAD</span>
               <div class="play-button">&#9658;</div>
@@ -2188,7 +2064,6 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
           <span class="badge badge-green">VIDEOJUEGOS · GODOT 4 COMUNIDAD</span>
           <h2 class="article-title">La Regla de Oro en Godot 4: Un Prompt, Una Mecánica Atómica</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -2208,18 +2083,16 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
             <strong>Análisis editorial:</strong> El secreto para que los scripts en GDScript funcionen al primer intento: mantener los scripts independientes de escenas complejas y usar `@export` para ajustar la física en el inspector del motor.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_28')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_28')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_28">Godot 4 Atomic Mechanic: Write a standalone CharacterBody2D GDScript implementing Coyote Time (0.15s buffer) and Jump Buffering (0.1s). Provide export variables for gravity and jump velocity with debug print statements.</pre>
+            <pre class="code-block" id="prompt_slot_28">Godot 4 Atomic Mechanic: Write a standalone CharacterBody2D GDScript implementing Coyote Time (0.15s buffer) and Jump Buffering (0.1s). Provide export variables for gravity and jump velocity with debug print statements.</pre>
           </div>
         </div>
 
@@ -2231,12 +2104,11 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: Parche GitSpawn: Blindaje de Terminal en Cursor y Claude Code -->
+      <!-- HISTORIA #29: Parche GitSpawn: Blindaje de Terminal en Cursor y Claude Code -->
       <article class="article-card" data-category="code">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://x.com/search?q=Claude%20Code%20GitSpawn%20security%20patch" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg" alt="Consola de seguridad bloqueando ejecución no autorizada de hooks en git" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&w=1200&q=85" alt="Línea de comandos de git en consola oscura protegida" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">SEGURIDAD · REPOSITORIOS</span>
               <div class="play-button">&#9658;</div>
@@ -2248,7 +2120,6 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
           <span class="badge badge-amber">SEGURIDAD · REPOSITORIOS</span>
           <h2 class="article-title">Parche GitSpawn: Blindaje de Terminal en Cursor y Claude Code</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -2268,18 +2139,16 @@ await agent.executeTask('Audit package.json dependencies and update vulnerable l
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
             <strong>Análisis editorial:</strong> Al clonar código de terceros, los agentes de desarrollo inspeccionaban la configuración de git local sin deshabilitar hooks automáticos. La nueva regla desactiva `core.hooksPath` por defecto.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_29')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_29')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_29"># Claude Code Security Guard Hook
+            <pre class="code-block" id="prompt_slot_29"># Claude Code Security Guard Hook
 git config --global core.hooksPath /dev/null
 agent.verifyRepoTrust(targetPath, { disallowLocalHooks: true, requireExplicitExecutionApproval: true });</pre>
           </div>
@@ -2293,12 +2162,11 @@ agent.verifyRepoTrust(targetPath, { disallowLocalHooks: true, requireExplicitExe
           </div>
         </div>
       </article>
-      <!-- ARTÍCULO: Archify: Validación Formal de Arquitecturas antes de Programar -->
+      <!-- HISTORIA #30: Archify: Validación Formal de Arquitecturas antes de Programar -->
       <article class="article-card" data-category="code">
-        <!-- HERO MEDIA CON IMAGEN GARANTIZADA -->
         <div class="hero-media">
           <a href="https://github.com/tt-a1i/archify" target="_blank" title="Ver Demostración / Video">
-            <img src="https://i.ytimg.com/vi/MMQb9p-Bd5k/hqdefault.jpg" alt="Diagrama de arquitectura tipada con validación formal de contratos" class="hero-img" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/92IbGKMeLQE/hqdefault.jpg';">
+            <img src="https://repository-images.githubusercontent.com/1211139949/484a27cf-6888-472b-9f58-46615a4429b1" alt="Diagrama de arquitectura tipada con validación formal de contratos" class="hero-img" loading="lazy">
             <div class="hero-overlay">
               <span class="hero-badge">DISEÑO DE SISTEMAS · TIPADO</span>
               <div class="play-button">&#9658;</div>
@@ -2310,7 +2178,6 @@ agent.verifyRepoTrust(targetPath, { disallowLocalHooks: true, requireExplicitExe
           <span class="badge badge-blue">DISEÑO DE SISTEMAS · TIPADO</span>
           <h2 class="article-title">Archify: Validación Formal de Arquitecturas antes de Programar</h2>
 
-          <!-- VENTANA DE TWEET NATIVO EN MODO OSCURO -->
           <div class="x-post-box">
             <div class="x-author-row">
               <div class="x-user-meta">
@@ -2330,18 +2197,16 @@ agent.verifyRepoTrust(targetPath, { disallowLocalHooks: true, requireExplicitExe
             </div>
           </div>
 
-          <!-- RESUMEN TÉCNICO EDITORIAL EN ESPAÑOL -->
           <div class="analysis-box">
             <strong>Análisis editorial:</strong> Un cortafuegos determinista contra las alucinaciones arquitectónicas: el motor comprueba que las colas de mensajes y los servicios cumplan contratos de idempotencia antes de la implementación.
           </div>
 
-          <!-- BLOQUE DE PROMPT COPIABLE -->
           <div class="code-section">
             <div class="code-header">
               <span>Prompt / Arquitectura Técnica</span>
-              <button class="copy-btn" onclick="copyPromptCode('prompt_30')">Copiar Prompt</button>
+              <button class="copy-btn" onclick="copyPromptCode('prompt_slot_30')">Copiar Prompt</button>
             </div>
-            <pre class="code-block" id="prompt_30">{
+            <pre class="code-block" id="prompt_slot_30">{
   "system": "OrderProcessing",
   "components": [{"id": "queue", "type": "RabbitMQ"}, {"id": "worker", "type": "NestJS"}],
   "contracts": [{"from": "queue", "to": "worker", "protocol": "AMQP", "idempotent": true}]
