@@ -27,7 +27,7 @@ jobs:
       - name: Descargar y seleccionar la edición más reciente
         run: |
           python3 -c "
-          import gdown, glob, os, shutil, re
+          import gdown, glob, os, shutil
 
           folder_url = 'https://drive.google.com/drive/folders/1hN4qI-EozwZxz0VwB79_YQ-8dTe2KQ_7'
           os.makedirs('drive_downloads', exist_ok=True)
@@ -36,17 +36,16 @@ jobs:
           gdown.download_folder(url=folder_url, output='drive_downloads', quiet=False, use_cookies=False)
 
           html_files = glob.glob('drive_downloads/**/*.html', recursive=True)
-          # Ordenar estrictamente por la fecha YYYY-MM-DD en el nombre del archivo
-          dated_files = [f for f in html_files if re.search(r'\d{4}-\d{2}-\d{2}', os.path.basename(f))]
           
-          if dated_files:
-              dated_files.sort(key=lambda f: re.search(r'\d{4}-\d{2}-\d{2}', os.path.basename(f)).group(0))
-              latest = dated_files[-1]
+          if html_files:
+              # Ordenar alfabéticamente por el nombre completo (garantiza la fecha y revisión más alta)
+              html_files.sort(key=lambda f: os.path.basename(f))
+              latest = html_files[-1]
               print(f'Edición seleccionada: {os.path.basename(latest)}')
               shutil.copy(latest, 'index.html')
               print('Actualizado index.html con éxito.')
           else:
-              print('No se encontraron archivos con formato de fecha en la carpeta.')
+              print('No se encontraron archivos HTML en la carpeta.')
               exit(1)
           "
           rm -rf drive_downloads
@@ -59,6 +58,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "El dashboard ya cuenta con la última edición."
           else
-            git commit -m "chore: actualizar a la edición más reciente de IA Pulse [skip ci]"
+            git commit -m "chore: actualizar a la edición curada de IA Pulse [skip ci]"
             git push
           fi
